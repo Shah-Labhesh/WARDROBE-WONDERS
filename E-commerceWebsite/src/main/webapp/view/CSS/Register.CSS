@@ -11,7 +11,7 @@ body {
 
 .container {
     width: 450px;
-    height: 520px;
+    height: 620px;
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 70px;
 }
 
 h2 {
@@ -37,7 +37,7 @@ label {
     font-size: 13px;
 }
 
-input[type=tel], input[type=password] {
+input[type=username], input[type=tel], input[type=password], input[type=email] {
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -48,7 +48,7 @@ input[type=tel], input[type=password] {
     width: 100%;
 }
 
-input[type=tel]:focus, input[type=password]:focus {
+input[type=username]:focus,input[type=tel]:focus, input[type=password]:focus, input[type=text]:focus{
     border-color: #4715DF;
     outline: none;
 }
