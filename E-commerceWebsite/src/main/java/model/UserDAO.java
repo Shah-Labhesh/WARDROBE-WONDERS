@@ -3,9 +3,11 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 
 public class UserDAO extends HttpServlet{
 	
@@ -46,6 +48,20 @@ public class UserDAO extends HttpServlet{
 		}
 		return null;
 		
+	}
+	
+	
+	public static ResultSet loginUser(String phone, String password) throws ClassNotFoundException, SQLException {
+		
+		String query = "SELECT * FROM user_registration WHERE User_phone = ? AND User_password = ?";
+		Connection con = getConnection();
+		PreparedStatement stmt = con.prepareStatement(query);
+	    stmt.setString(1, phone);
+	    stmt.setString(2, password);
+	    
+	    ResultSet rs = stmt.executeQuery();
+	      
+	    return rs;  
 	}
 
 }
