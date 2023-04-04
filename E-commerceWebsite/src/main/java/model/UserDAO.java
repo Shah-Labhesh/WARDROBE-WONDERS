@@ -3,49 +3,69 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServlet;
 
-public class UserDAO extends HttpServlet{
-	
-	public static Connection getConnection() throws ClassNotFoundException, SQLException{
-		Class.forName("com.mysql.jdbc.Driver");  
+import controller.User;
+
+public class UserDAO extends HttpServlet {
+
+	public static Connection getConnection() throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.jdbc.Driver");
 		String url = "jdbc:mysql://localhost:3306/clothe_shop";
 		String userName = "root";
 		String password = "";
-		Connection con = DriverManager.getConnection(url,userName,password);
+		Connection con = DriverManager.getConnection(url, userName, password);
 		return con;
 	}
-	
-	public static String registerUser(String name, String phone, String email, String password, String confirmPassword) throws SQLException {
-		
-		
+
+	public static String registerUser(User urInfo) throws SQLException {
+
 		try {
-			if (password.equals(confirmPassword)) {
-			String addQuery = "INSERT INTO user_registration values (?,?,?,?)";
+
+			String addQuery = "INSERT INTO user_registration (User_name,User_phone,User_email,User_password) values (?,?,?,?)";
 			Connection con = getConnection();
 			PreparedStatement pt = con.prepareStatement(addQuery);
-			 pt.setNString(1, name);
-			 pt.setNString(2, phone);
-			 pt.setNString(3, email);
-			 pt.setNString(4, password);
-			 int rows = pt.executeUpdate();
-			 if (rows>=1) {
-				 return "Successfully Registered";
-			 }
-			 con.close();
-			return null; 
-			}else {
-				return "Password didn't matched!";
+			pt.setNString(1, urInfo.getUserName());
+			pt.setNString(2, urInfo.getUserContact());
+			pt.setNString(3, urInfo.getUserEmail());
+			pt.setNString(4, urInfo.getEncryptPassword());
+			int rows = pt.executeUpdate();
+			if (rows >= 1) {
+				return "Successfully Registered";
 			}
-			
+			con.close();
+			return null;
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-		
+
+	}
+	
+	public static ResultSet loginUser(String phone, String password) throws SQLException {
+
+		try {
+
+			String addQuery = "Select * from user_registration where User_name =? and User_password=?";
+			Connection con = getConnection();
+			PreparedStatement pt = con.prepareStatement(addQuery);
+			pt.setNString(1, phone);
+			pt.setNString(2, password);
+			ResultSet rs = pt.executeQuery();
+			
+			return rs;
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+
 	}
 
 }
