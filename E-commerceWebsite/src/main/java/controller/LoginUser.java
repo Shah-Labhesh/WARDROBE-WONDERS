@@ -2,13 +2,15 @@ package controller;
 
 import java.io.*;
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+import model.AESEncryption;
 import model.UserDAO;
 
 import java.sql.*;
 
-@WebServlet("/")
+@WebServlet("/view/HTML/UserLogin")
 public class LoginUser extends HttpServlet {
   
   public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -18,9 +20,10 @@ public class LoginUser extends HttpServlet {
     String phone = request.getParameter("phone");
     String password = request.getParameter("password");
     
+    String decryptPassword = AESEncryption.decrypt(password);
     
     try {
-    ResultSet rs = UserDAO.loginUser(phone, password);  	
+    ResultSet rs = UserDAO.loginUser(phone, decryptPassword);  	
       
     if (rs.next()) {
         // Successful login, set the user in the session
@@ -32,7 +35,7 @@ public class LoginUser extends HttpServlet {
       RequestDispatcher rd = request.getRequestDispatcher("Login.html");
       rd.forward(request, response);
     }
-    }catch(ClassNotFoundException | SQLException e) {
+    }catch(SQLException e) {
     	
     }
     

@@ -30,7 +30,11 @@
 	</natures>
 	<filteredResources>
 		<filter>
+<!-- <<<<<<< HEAD
 			<id>1680272904099</id>
+======= -->
+			<id>1680671586727</id>
+<!-- >>>>>>> backend -->
 			<name></name>
 			<type>30</type>
 			<matcher>
