@@ -11,10 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import controller.User;
 
-public class UserDAO extends HttpServlet {
+public class UserDAO {
 
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		String url = "jdbc:mysql://localhost:3306/clothe_shop";
 		String userName = "root";
 		String password = "";
@@ -26,13 +26,14 @@ public class UserDAO extends HttpServlet {
 
 		try {
 
-			String addQuery = "INSERT INTO user_registration (User_name,User_phone,User_email,User_password) values (?,?,?,?)";
+			String addQuery = "INSERT INTO user_registration (user_image,User_name,User_phone,User_email,User_password) values (?,?,?,?,?)";
 			Connection con = getConnection();
 			PreparedStatement pt = con.prepareStatement(addQuery);
-			pt.setNString(1, urInfo.getUserName());
-			pt.setNString(2, urInfo.getUserContact());
-			pt.setNString(3, urInfo.getUserEmail());
-			pt.setNString(4, urInfo.getEncryptPassword());
+			pt.setNString(1, urInfo.getUserImagePath());
+			pt.setNString(2, urInfo.getUserName());
+			pt.setNString(3, urInfo.getUserContact());
+			pt.setNString(4, urInfo.getUserEmail());
+			pt.setNString(5, urInfo.getEncryptPassword());
 			int rows = pt.executeUpdate();
 			if (rows >= 1) {
 				return "Successfully Registered";
@@ -48,17 +49,16 @@ public class UserDAO extends HttpServlet {
 
 	}
 	
-	public static ResultSet loginUser(String phone, String password) throws SQLException {
+	public static ResultSet loginUser(String phone) throws SQLException {
 
 		try {
 
-			String addQuery = "Select * from user_registration where User_name =? and User_password=?";
+			String query = "Select * from user_registration where User_phone =? ";
 			Connection con = getConnection();
-			PreparedStatement pt = con.prepareStatement(addQuery);
+			PreparedStatement pt = con.prepareStatement(query);
 			pt.setNString(1, phone);
-			pt.setNString(2, password);
 			ResultSet rs = pt.executeQuery();
-			
+
 			return rs;
 
 		} catch (ClassNotFoundException e) {
@@ -70,17 +70,6 @@ public class UserDAO extends HttpServlet {
 	}
 	
 	
-	public static ResultSet loginUser(String phone, String password) throws ClassNotFoundException, SQLException {
-		
-		String query = "SELECT * FROM user_registration WHERE User_phone = ? AND User_password = ?";
-		Connection con = getConnection();
-		PreparedStatement stmt = con.prepareStatement(query);
-	    stmt.setString(1, phone);
-	    stmt.setString(2, password);
-	    
-	    ResultSet rs = stmt.executeQuery();
-	      
-	    return rs;  
-	}
+	
 
 }
