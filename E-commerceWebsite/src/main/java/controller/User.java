@@ -2,18 +2,26 @@ package controller;
 
 public class User {
 
-
 	private String userName;
 	private String userContact;
 	private String userEmail;
 	private String encryptPassword;
-	
-	public User(String userName, String userContact, String userEmail, String encryptPassword) {
+	private String userImagePath;
+
+	public User(String userImagePath, String userName, String userContact, String userEmail, String encryptPassword) {
 
 		this.userName = userName;
 		this.userContact = userContact;
 		this.userEmail = userEmail;
 		this.encryptPassword = encryptPassword;
+	}
+
+	public String getUserImagePath() {
+		return userImagePath;
+	}
+
+	public void setUserImagePath(String userImagePath) {
+		this.userImagePath = userImagePath;
 	}
 
 	public String getUserName() {
@@ -47,7 +55,5 @@ public class User {
 	public void setEncryptPassword(String encryptPassword) {
 		this.encryptPassword = encryptPassword;
 	}
-	
-	
-	
+
 }
