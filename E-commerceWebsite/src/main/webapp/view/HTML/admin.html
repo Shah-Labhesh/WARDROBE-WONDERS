@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel - Add Product</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex; /* Display container as a flexbox */
+    }
+    .form-wrapper {
+      flex: 1; /* Take up all available space in the flex container */
+      padding-right: 20px; /* Add some spacing between form and image */
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #ffffff;
+      text-align: center;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .image-wrapper {
+      flex: 1; /* Take up all available space in the flex container */
+      display: flex; /* Display image wrapper as a flexbox */
+      align-items: center; /* Center the image vertically */
+    }
+    .image-wrapper img {
+      max-width: 100%; /* Ensure image does not exceed container width */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-wrapper">
+      <h1>Admin Panel - Add Product</h1>
+      <form>
+        <div class="form-group">
+          <label for="productName">Product Name:</label>
+          <input type="text" id="productName" placeholder="Enter product name" required>
+        </div>
+        <div class="form-group">
+          <label for="productDescription">Product Description:</label>
+          <textarea id="productDescription" rows="3" placeholder="Enter product description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productPrice">Product Price:</label>
+          <input type="number" id="productPrice" placeholder="Enter product price" required>
+        </div>
+
+        <div class="form-group">
+          <label for="productImage">Product Image:</label>
+          <input type="file" id="productImage" accept="image/*" required>
+        </div>
+
+
+        <div class="form-group">
+          <label for="productCategory">Category:</label>
+          <select id="productCategory" required>
+            <option value="">Select a category</option>
+            <option value="Mens">Mens</option>
+            <option value="Womens">Womens</option>
+            <option value="Kids">Kids</option>
+            
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="productQuantity">Product Quantity:</label>
+          <input type="number" id="productQuantity" placeholder="Enter product quantity" required>
+        </div>
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+    <div class="image-wrapper">
+      <img src="images/background.JPG" alt="Product Image">
+    </div>
+  </div>
+</body>
+</html>
