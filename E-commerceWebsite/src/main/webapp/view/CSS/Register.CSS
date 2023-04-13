@@ -1,4 +1,4 @@
-* {
+/* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -59,12 +59,119 @@ button[type=submit] {
     border: 2px solid blue;
     border-radius: 5px;
     padding: 10px;
-    margin-top: auto; /* Push the button to the bottom */
-    align-self: flex-end; /* Align the button to the bottom */
+    margin-top: auto; 
+    align-self: flex-end; 
     cursor: pointer;
-    width: 100%; /* Match the width with text fields */
+    width: 100%; 
 }
 
 button[type=submit]:hover {
     background-color: #4e3794;
+} */
+
+.container {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 20px;
+  width: 500px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+a {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile devices */
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+  #login-form {
+    max-width: 100%;
+    margin: 0;
+  }
+  /* Adjust font size and line height for smaller screens */
+  label, input[type="text"], input[type="tel"], input[type="email"], input[type="password"], input[type="file"], input[type="submit"] {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/* Tablets and smaller desktops */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+/* Larger desktops */
+@media only screen and (min-width: 769px) {
+  .container {
+    width: 60%;
+    margin: 0 auto;
+  }
 }

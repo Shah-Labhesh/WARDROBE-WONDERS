@@ -6,11 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpSession;
-
-import controller.User;
-
 public class UserDAO {
 
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
@@ -25,7 +20,6 @@ public class UserDAO {
 	public static String registerUser(User urInfo) throws SQLException {
 
 		try {
-
 			String addQuery = "INSERT INTO user_registration (user_image,User_name,User_phone,User_email,User_password) values (?,?,?,?,?)";
 			Connection con = getConnection();
 			PreparedStatement pt = con.prepareStatement(addQuery);
@@ -58,7 +52,6 @@ public class UserDAO {
 			PreparedStatement pt = con.prepareStatement(query);
 			pt.setNString(1, phone);
 			ResultSet rs = pt.executeQuery();
-
 			return rs;
 
 		} catch (ClassNotFoundException e) {

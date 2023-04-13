@@ -1,19 +1,30 @@
-package controller;
+package model;
 
 public class User {
 
+	private int userId;
 	private String userName;
 	private String userContact;
 	private String userEmail;
 	private String encryptPassword;
 	private String userImagePath;
 
-	public User(String userImagePath, String userName, String userContact, String userEmail, String encryptPassword) {
+	public User(String userImagePath, String userName, String userContact, String userEmail,
+			String encryptPassword) {
 
 		this.userName = userName;
 		this.userContact = userContact;
 		this.userEmail = userEmail;
 		this.encryptPassword = encryptPassword;
+		this.userImagePath = userImagePath;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getUserImagePath() {
