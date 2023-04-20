@@ -2,30 +2,24 @@ package model;
 
 public class User {
 
-	private int userId;
 	private String userName;
 	private String userContact;
 	private String userEmail;
+	private String userAddress;
 	private String encryptPassword;
 	private String userImagePath;
 
-	public User(String userImagePath, String userName, String userContact, String userEmail,
-			String encryptPassword) {
+	public User(String userName, String userContact, String userEmail,String userAddress,  String userImagePath, String encryptPassword) {
 
 		this.userName = userName;
 		this.userContact = userContact;
 		this.userEmail = userEmail;
-		this.encryptPassword = encryptPassword;
+		this.userAddress = userAddress;
 		this.userImagePath = userImagePath;
+		this.encryptPassword = encryptPassword;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 	public String getUserImagePath() {
 		return userImagePath;
@@ -57,6 +51,14 @@ public class User {
 
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+
+	public String getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 
 	public String getEncryptPassword() {

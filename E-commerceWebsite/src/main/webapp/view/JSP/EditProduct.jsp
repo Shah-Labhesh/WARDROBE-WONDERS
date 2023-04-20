@@ -7,72 +7,72 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Product details</title>
-<link rel="stylesheet" href="../CSS/AddProduct.css">
+<link rel="stylesheet" href="view/CSS/AddProduct.css">
 </head>
 <body>
 	<div class="container">
 		<div class="form-wrapper">
-			<h1>Admin Panel - Add Product</h1>
-			<form action="updateProduct" method="post"
+			<h1>Admin Panel - Edit product</h1>
+			<form action="up" method="post"
 				enctype="multipart/form-data">
 				<p>${error}</p>
 
 				<div class="form-group">
 					<label for="productId">Product ID:</label> <input type="text"
-						id="productId" name="prodId" placeholder="Enter product ID"
+						id="productId" name="id" placeholder="Enter product ID"
 						value="${product.productId}" readonly="readonly" required>
 				</div>
 				<div class="form-group">
 					<label for="productName">Product Name:</label> <input type="text"
-						id="productName" name="prodName" placeholder="Enter product name"
+						id="productName" name="name" placeholder="Enter product name"
 						value="${product.productName}" required>
 				</div>
 				<div class="form-group">
 					<label for="productDescription">Product Description:</label>
-					<textarea id="productDescription" rows="3" name="prodDesc"
+					<textarea id="productDescription" rows="3" name="desc"
 						placeholder="Enter product description" required></textarea>
 				</div>
 				<div class="form-group">
 					<label for="productPrice">Product Price:</label> <input type="text"
-						id="productPrice" name="prodPrice"
+						id="productPrice" name="price"
 						placeholder="Enter product price" value="${product.productPrice}"
 						required>
 				</div>
 
 				<div class="form-group">
 					<label for="productImage">Product Image:</label> <input type="file"
-						id="productImage1" onchange="onPickImage1()" name="prodImg1"
+						id="productImage1" onchange="onPickImage1()" name="img1"
 						accept="image/*"> <input type="file" id="productImage2"
-						onchange="onPickImage2()" name="prodImg2" accept="image/*">
+						onchange="onPickImage2()" name="img2" accept="image/*">
 				</div>
 
 
 				<div class="form-group">
 					<label for="productCategory">Category:</label> <select
-						id="productCategory" name="prodCat" required>
+						id="productCategory" name="cat" required>
 						<option value="Mens"
-							<c:if test="${fn:toLowerCase(product.productCat) eq 'Mens'}">selected</c:if>>Mens</option>
+							<c:if test="${fn:toLowerCase(product.productCat) eq 'Mens'}"> selected</c:if>>Mens</option>
 						<option value="Womens"
-							<c:if test="${fn:toLowerCase(product.productCat) eq 'Womens'}">selected</c:if>>Womens</option>
+							<c:if test="${fn:toLowerCase(product.productCat) eq 'Womens'}"> selected</c:if>>Womens</option>
 						<option value="Kids"
-							<c:if test="${fn:toLowerCase(product.productCat) eq 'Kids'}">selected</c:if>>Kids</option>
+							<c:if test="${fn:toLowerCase(product.productCat) eq 'Kids'}"> selected</c:if>>Kids</option>
 
 					</select>
 				</div>
 
 				<div class="form-group">
 					<label for="productQuantity">Product Quantity:</label> <input
-						type="number" id="productQuantity" name="prodQuan"
+						type="number" id="productQuantity" name="quan"
 						placeholder="Enter product quantity"
 						value="${product.productQuantity}" required>
 				</div>
 				<button type="submit">Update Product</button>
 			</form>
 		</div>
-		<div class="image-wrapper">
-			<img src="../images/${product.productImagePath1}" id="image1"
-				alt="Product Image"> <img
-				src="../images/${product.productImagePath2}" id="image2"
+		<div class="image-wrapper" style="display: flex; flex-direction: column;">
+			<img src="view/images/${product.productImagePath1}" id="image1" height="300px"
+				alt="Product Image"> <br><br><br><br><img
+				src="view/images/${product.productImagePath2}" id="image2" height="300px"
 				alt="Product Image">
 		</div>
 	</div>

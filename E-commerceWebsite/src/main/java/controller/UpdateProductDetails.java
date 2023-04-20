@@ -1,10 +1,10 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,18 +14,22 @@ import javax.servlet.http.Part;
 import model.ProductDAO;
 import model.Products;
 
-@WebServlet("/updateProduct")
+@WebServlet("/up")
+@MultipartConfig
 public class UpdateProductDetails extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String id = req.getParameter("prodId");
-		String name = req.getParameter("prodName");
-		String description = req.getParameter("prodDesc");
-		String price = req.getParameter("prodPrice");
-		Part image1 = req.getPart("prodImg1");
-		Part image2 = req.getPart("prodImg2");
-		String category = req.getParameter("prodCat");
-		String quantity = req.getParameter("prodQuan");
+		String id = req.getParameter("id");
+		String name = req.getParameter("name");
+		String description = req.getParameter("desc");
+		String price = req.getParameter("price");
+		Part image1 = req.getPart("img1");
+		Part image2 = req.getPart("img2");
+		String category = req.getParameter("cat");
+		String quantity = req.getParameter("quan");
 		String prodImagePath1 = "prodImage/" + id + "1.png";
 		String prodImagePath2 = "prodImage/" + id + "2.png";
 
@@ -40,12 +44,10 @@ public class UpdateProductDetails extends HttpServlet {
 			String imagePath2 = path + prodImagePath2;
 			image1.write(imagePath1);
 			image2.write(imagePath2);
-			RequestDispatcher rd = req.getRequestDispatcher("/viewProducts");
-			rd.forward(req, resp);
+			resp.sendRedirect(req.getContextPath()+"/viewProducts");
 		} 
 			
-			RequestDispatcher rd = req.getRequestDispatcher("/view/JSP/AddProduct.jsp");
-			rd.forward(req, resp);
+		resp.sendRedirect(req.getContextPath()+"/viewProducts");
 			System.out.println(message);
 	}
 }

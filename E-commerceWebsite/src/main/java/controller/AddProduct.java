@@ -46,8 +46,7 @@ public class AddProduct extends HttpServlet {
 			String imagePath2 = path + prodImagePath2;
 			image1.write(imagePath1);
 			image2.write(imagePath2);
-			RequestDispatcher rd = req.getRequestDispatcher("/viewProducts");
-			rd.forward(req, resp);
+			resp.sendRedirect(req.getContextPath()+"/viewProducts");
 			}else {
 				req.setAttribute("Error", "Id should be unique");
 				RequestDispatcher rd = req.getRequestDispatcher("/view/JSP/AddProduct.jsp");

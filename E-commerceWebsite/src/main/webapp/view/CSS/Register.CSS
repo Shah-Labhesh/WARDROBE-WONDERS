@@ -1,73 +1,3 @@
-/* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    width: 450px;
-    height: 620px;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background-color: black;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 70px;
-}
-
-h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: white;
-}
-
-label {
-    margin-top: 10px;
-    color: white;
-    font-size: 13px;
-}
-
-input[type=username], input[type=tel], input[type=password], input[type=email] {
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: none;
-    border-bottom: 2px solid white;
-    background-color: transparent;
-    color: white;
-    width: 100%;
-}
-
-input[type=username]:focus,input[type=tel]:focus, input[type=password]:focus, input[type=text]:focus{
-    border-color: #4715DF;
-    outline: none;
-}
-
-button[type=submit] {
-    background-color: #04010C;
-    color: #fff;
-    border: 2px solid blue;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: auto; 
-    align-self: flex-end; 
-    cursor: pointer;
-    width: 100%; 
-}
-
-button[type=submit]:hover {
-    background-color: #4e3794;
-} */
 
 .container {
   background-color: #fff;
@@ -81,7 +11,7 @@ button[type=submit]:hover {
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
 }
 
 h2 {
@@ -130,9 +60,8 @@ input[type="submit"]:hover {
 }
 
 a {
-  display: block;
-  margin-top: 20px;
-  text-align: center;
+  
+  
   color: #007bff;
   text-decoration: none;
   font-size: 16px;
@@ -141,6 +70,15 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+.richtext{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.error{
+	color: red;
+	text-align: center;
 }
 
 /* Mobile devices */

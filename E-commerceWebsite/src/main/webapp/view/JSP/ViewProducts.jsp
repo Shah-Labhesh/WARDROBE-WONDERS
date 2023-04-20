@@ -8,74 +8,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>View Products</title>
-<style>
-/* CSS for styling the table */
-table {
-	border-collapse: collapse;
-	width: 100%;
+    <title>Admin View Products</title>
+    <style>
+        /* Add CSS styles here for the blue and white theme */
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+       
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: end;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin: 0px;
+    height: 20px; /* Update the height value to adjust the height of the search bar */
+    width: 10px; /* Update the width value to adjust the width of the search bar */
 }
 
-th, td {
-	text-align: left;
-	padding: 8px;
-}
 
-th {
-	background-color: #008CBA;
-	color: white;
-}
 
-tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
+        .search-button {
+            margin-left: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .add-product-button {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
 
-/* CSS for the page heading */
-h1 {
-	text-align: center;
-	margin-top: 50px;
-	color: #008CBA;
-}
-</style>
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .product-table th,
+        .product-table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .product-table th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .product-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a{
+            color: #000;
+            text-decoration: none;        }
+    </style>
 </head>
 <body>
-	<h1>View Products</h1>
-	<br>
-	<a href="AddProduct.jsp">Add new product</a>
-
-
-	<table border="1">
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Category</th>
-			<th>Image</th>
-			<th>Image</th>
-			<th>Quantity</th>
-			<th>Actions</th>
-			
-		</tr>
+    <div class="container">
+        <h1>Admin View Products</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by category">
+            <button class="search-button" onclick="searchProducts()">Search</button>
+        </div>
+        <button class="add-product-button" onclick="location.href='view/JSP/AddProduct.jsp'">Add Product</button>
+        <table class="product-table">
+            <tr>
+                <th>Image</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
 		<c:forEach var="prod" items="${productList}">
 		
 			<tr>
+			<td><img src="view/images/${prod.productImagePath1}" width="50" height="50" style="margin: 0 20px; border-radius: 10px;"/>
+			<img src="view/images/${prod.productImagePath2}" height="50px" width="50px" style="border-radius: 10px;"/></td>
 			<td>${prod.productId}</td>
 			<td>${prod.productName}</td>
-			<td>${prod.productDescription}</td>
-			<td>${prod.productPrice}</td>
 			<td>${prod.productCat}</td>
-			<td>${prod.productImagePath1}</td>
-			<td>${prod.productImagePath2}</td>
-			<!--  <td><img src="images/${prod.productImagePath1}" height="100px" width="100px"/></td>
-			<td><img src="images/${prod.productImagePath2}" height="100px" width="100px"/></td>-->
 			<td>${prod.productQuantity}</td>
-			<td><a href="editProduct?id=${prod.productId}">Edit</a>  <a href="">Delete</a></td>
+			<td>${prod.productPrice}</td>
+			<td>${prod.productDescription}</td>
+			
+			<td style="justify-content: space-evenly;">
+                    <a href="${pageContext.request.contextPath}/editProduct?id=${prod.productId}" ><span>&#x270E;</span></a>&emsp;
+                    <a href="${pageContext.request.contextPath}/deleteProduct?id=${prod.productId}" ><span>&#x1F5D1;</span></a>
+</td>
 			</tr>
 		
 		</c:forEach>
 	</table>
-	<img alt="not found" src="images/prodImage/11.png">
+	
 </body>
 </html>

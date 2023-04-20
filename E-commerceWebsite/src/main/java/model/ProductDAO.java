@@ -69,6 +69,7 @@ public class ProductDAO {
 				Products prod = new Products(id, name, description, price, category, imagePath1, imagePath2, quantity);
 				productList.add(prod);
 			}
+			con.close();
 			return productList;
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -76,6 +77,9 @@ public class ProductDAO {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 
+		}
+		finally {
+			
 		}
 		return null;
 	}
@@ -101,6 +105,7 @@ public class ProductDAO {
 
 			prod = new Products(id2, name, description, price, category, imagePath1, imagePath2, quantity);
 			}
+			con.close();
 
 		} catch (ClassNotFoundException | SQLException e) {
 
@@ -114,31 +119,63 @@ public class ProductDAO {
 	public static String updateProduct(Products pd) {
 		try {
 
-			String updateQuery = "UPDATE products SET Prod_name=?, Prod_description=?, Prod_price=?, Prod_imagePath1=?, Prod_imagePath2=?, Prod_category=?, Prod_quantity=? WHERE id=?";
+			String updateQuery = "UPDATE products SET Prod_name=?, Prod_description=?, Prod_price=?, Prod_imagePath1=?, Prod_imagePath2=?, Prod_category=?, Prod_quantity=? WHERE Prod_Id=?";
 			Connection con = getConnection();
 			PreparedStatement pt = con.prepareStatement(updateQuery);
-			pt.setNString(1, pd.getProductName());
-			pt.setNString(2, pd.getProductDescription());
-			pt.setNString(3, pd.getProductPrice());
-			pt.setNString(4, pd.getProductImagePath1());
-			pt.setNString(5, pd.getProductImagePath2());
-			pt.setNString(6, pd.getProductCat());
-			pt.setNString(7, pd.getProductQuantity());
-			pt.setNString(8, pd.getProductId());
+			pt.setString(1, pd.getProductName());
+			pt.setString(2, pd.getProductDescription());
+			pt.setString(3, pd.getProductPrice());
+			pt.setString(4, pd.getProductImagePath1());
+			pt.setString(5, pd.getProductImagePath2());
+			pt.setString(6, pd.getProductCat());
+			pt.setString(7, pd.getProductQuantity());
+			pt.setString(8, pd.getProductId());
+			
+			
+			
 			int rows = pt.executeUpdate();
+			
+			con.close();
 			if (rows >= 1) {
 				return "Successfully Updated";
 			}
-
-			con.close();
-		} catch (ClassNotFoundException | SQLException e) {
+			
+		} catch (Exception e) {
 
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 			return e.getMessage();
+		}
 
 		}
-		return null;
+		
+		public static String deleteProduct(String id) {
+			try {
+
+				String deleteQuery = "DELETE FROM products WHERE Prod_Id=?";
+				Connection con = getConnection();
+				PreparedStatement pt = con.prepareStatement(deleteQuery);
+				pt.setString(1, id);
+				
+				
+				
+				int rows = pt.executeUpdate();
+				
+				con.close();
+				if (rows >= 1) {
+					return "Successfully Deleted";
+				}
+				
+			} catch (Exception e) {
+
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+				return e.getMessage();
+
+			}
+			return null;
+		
+
 	}
 
 }
