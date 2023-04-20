@@ -15,7 +15,7 @@
 
 	<context-param>
   <param-name>image_path</param-name>
-  <param-value>E:\\Servlet-CW\\E-commerceWebsite\\src\\main\\webapp\\view\\images\\</param-value>
+  <param-value>E:/Servlet-CW/E-commerceWebsite/src/main/webapp/view/images/</param-value>
   </context-param>
 
 </web-app>

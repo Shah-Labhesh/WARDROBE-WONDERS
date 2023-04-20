@@ -10,7 +10,7 @@ import model.UserDAO;
 
 import java.sql.*;
 
-@WebServlet("/view/HTML/UserLogin")
+@WebServlet("/view/JSP/UserLogin")
 public class LoginUser extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,31 +18,34 @@ public class LoginUser extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String password = request.getParameter("password");
 		PrintWriter out = response.getWriter();
-		
-
-
 
 		try {
 			ResultSet rs = UserDAO.loginUser(phone);
-    	    String encryptPassword = rs.getString("User_password");
-    	    System.out.println("Login success");
-    	    System.out.println(encryptPassword);
-    	    
-    	    
-    	    String userPassword = AESEncryption.decrypt(encryptPassword);
-    	    System.out.println(userPassword);
-
-			if (userPassword.equals(password)) {
-				// Successful login, set the user in the session
-				out.println("Login success");
-				System.out.println("Login success");
+			System.out.println("Login success");
+			if (rs == null || !rs.next()) {
+				System.out.println("empty");
 			} else {
 
-				request.setAttribute("error", "Invalid phone number or password");
-				RequestDispatcher rd = request.getRequestDispatcher("Login.html");
-				rd.forward(request, response);
+				String encryptPassword = rs.getString("User_password");
+
+				String userPassword = AESEncryption.decrypt(encryptPassword);
+
+				if (userPassword.equals(password)) {
+					// Successful login, set the user in the session
+					out.println("Login success");
+
+					RequestDispatcher rd = request.getRequestDispatcher("Index.jsp");
+					rd.forward(request, response);
+				} else {
+
+					request.setAttribute("error", "Invalid phone number or password");
+					RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+					rd.forward(request, response);
+				}
 			}
 		} catch (SQLException e) {
+
+			e.printStackTrace();
 
 		}
 

@@ -1,70 +1,115 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
-}
 
 .container {
-    width: 450px;
-    height: 620px;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background-color: black;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 70px;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 20px;
+  width: 500px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
 }
 
 h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
 }
 
 label {
-    margin-top: 10px;
-    color: white;
-    font-size: 13px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
 }
 
-input[type=username], input[type=tel], input[type=password], input[type=email] {
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: none;
-    border-bottom: 2px solid white;
-    background-color: transparent;
-    color: white;
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+a {
+  
+  
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.richtext{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.error{
+	color: red;
+	text-align: center;
+}
+
+/* Mobile devices */
+@media only screen and (max-width: 480px) {
+  .container {
     width: 100%;
-}
-
-input[type=username]:focus,input[type=tel]:focus, input[type=password]:focus, input[type=text]:focus{
-    border-color: #4715DF;
-    outline: none;
-}
-
-button[type=submit] {
-    background-color: #04010C;
-    color: #fff;
-    border: 2px solid blue;
-    border-radius: 5px;
     padding: 10px;
-    margin-top: auto; /* Push the button to the bottom */
-    align-self: flex-end; /* Align the button to the bottom */
-    cursor: pointer;
-    width: 100%; /* Match the width with text fields */
+  }
+  #login-form {
+    max-width: 100%;
+    margin: 0;
+  }
+  /* Adjust font size and line height for smaller screens */
+  label, input[type="text"], input[type="tel"], input[type="email"], input[type="password"], input[type="file"], input[type="submit"] {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
-button[type=submit]:hover {
-    background-color: #4e3794;
+/* Tablets and smaller desktops */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+/* Larger desktops */
+@media only screen and (min-width: 769px) {
+  .container {
+    width: 60%;
+    margin: 0 auto;
+  }
 }
