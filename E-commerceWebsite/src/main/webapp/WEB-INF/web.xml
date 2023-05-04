@@ -5,17 +5,17 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>E-commerceWebsite</display-name>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-		<welcome-file>default.htm</welcome-file>
+		<welcome-file>Index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
   <param-name>image_path</param-name>
   <param-value>E:/Servlet-CW/E-commerceWebsite/src/main/webapp/view/images/</param-value>
   </context-param>
+  
+  <!-- <error-page>
+  <error-code>404</error-code>
+  <location>/view/HTML/404.html</location>
+  </error-page> -->
 
 </web-app>

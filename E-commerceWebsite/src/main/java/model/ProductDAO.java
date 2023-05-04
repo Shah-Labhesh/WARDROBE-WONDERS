@@ -51,7 +51,7 @@ public class ProductDAO {
 		ArrayList<Products> productList = new ArrayList<>();
 		try {
 
-			String getQuery = "SELECT * from products";
+			String getQuery = "SELECT * from products ORDER BY Prod_Id ASC";
 			Connection con = getConnection();
 			PreparedStatement pt = con.prepareStatement(getQuery);
 
@@ -77,9 +77,8 @@ public class ProductDAO {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 
-		}
-		finally {
-			
+		} finally {
+
 		}
 		return null;
 	}
@@ -94,16 +93,16 @@ public class ProductDAO {
 			pt.setString(1, id);
 			ResultSet table = pt.executeQuery();
 			while (table.next()) {
-			String id2 = table.getString(1);
-			String name = table.getString(2);
-			String description = table.getString(3);
-			String price = table.getString(4);
-			String imagePath1 = table.getString(5);
-			String imagePath2 = table.getString(6);
-			String category = table.getString(7);
-			String quantity = table.getString(8);
+				String id2 = table.getString(1);
+				String name = table.getString(2);
+				String description = table.getString(3);
+				String price = table.getString(4);
+				String imagePath1 = table.getString(5);
+				String imagePath2 = table.getString(6);
+				String category = table.getString(7);
+				String quantity = table.getString(8);
 
-			prod = new Products(id2, name, description, price, category, imagePath1, imagePath2, quantity);
+				prod = new Products(id2, name, description, price, category, imagePath1, imagePath2, quantity);
 			}
 			con.close();
 
@@ -116,6 +115,7 @@ public class ProductDAO {
 		return prod;
 
 	}
+
 	public static String updateProduct(Products pd) {
 		try {
 
@@ -130,52 +130,85 @@ public class ProductDAO {
 			pt.setString(6, pd.getProductCat());
 			pt.setString(7, pd.getProductQuantity());
 			pt.setString(8, pd.getProductId());
-			
-			
-			
+
 			int rows = pt.executeUpdate();
-			
+
 			con.close();
 			if (rows >= 1) {
 				return "Successfully Updated";
 			}
-			
+
 		} catch (Exception e) {
 
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 			return e.getMessage();
 		}
+		return null;
+
+	}
+
+	public static String deleteProduct(String id) {
+		try {
+
+			String deleteQuery = "DELETE FROM products WHERE Prod_Id=?";
+			Connection con = getConnection();
+			PreparedStatement pt = con.prepareStatement(deleteQuery);
+			pt.setString(1, id);
+
+			int rows = pt.executeUpdate();
+
+			con.close();
+			if (rows >= 1) {
+				return "Successfully Deleted";
+			}
+
+		} catch (Exception e) {
+
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return e.getMessage();
 
 		}
-		
-		public static String deleteProduct(String id) {
-			try {
+		return null;
 
-				String deleteQuery = "DELETE FROM products WHERE Prod_Id=?";
-				Connection con = getConnection();
-				PreparedStatement pt = con.prepareStatement(deleteQuery);
-				pt.setString(1, id);
-				
-				
-				
-				int rows = pt.executeUpdate();
-				
-				con.close();
-				if (rows >= 1) {
-					return "Successfully Deleted";
-				}
-				
-			} catch (Exception e) {
+	}
 
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-				return e.getMessage();
+	public static ArrayList<Products> searchProduct(String value) {
+		ArrayList<Products> prod = new ArrayList();
+		try {
 
+			String searchQuery = "SELECT * FROM products where Prod_name LIKE ? OR Prod_category LIKE ? OR Prod_price LIKE ? OR Prod_description LIKE ?";
+			Connection con = getConnection();
+			PreparedStatement pt = con.prepareStatement(searchQuery);
+			pt.setString(1, "%" + value + "%");
+			pt.setString(2, "%" + value + "%");
+			pt.setString(3, "%" + value + "%");
+			pt.setString(4, "%" + value + "%");
+
+			ResultSet table = pt.executeQuery();
+			while (table.next()) {
+				String id = table.getString(1);
+				String name = table.getString(2);
+				String description = table.getString(3);
+				String price = table.getString(4);
+				String imagePath1 = table.getString(5);
+				String imagePath2 = table.getString(6);
+				String category = table.getString(7);
+				String quantity = table.getString(8);
+
+				Products pd = new Products(id, name, description, price, category, imagePath1, imagePath2, quantity);
+				prod.add(pd);
 			}
-			return null;
-		
+			con.close();
 
+		} catch (Exception e) {
+
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+
+		}
+		return prod;
 	}
 
 }

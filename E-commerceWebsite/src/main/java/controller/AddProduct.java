@@ -34,20 +34,22 @@ public class AddProduct extends HttpServlet {
 		String prodImagePath1 = "prodImage/" + id + "1.png";
 		String prodImagePath2 = "prodImage/" + id + "2.png";
 
-		Products prodInfo = new Products(id,name, description, price, category, prodImagePath1,prodImagePath2, quantity);
-
-		
+		Products prodInfo = new Products(id, name, description, price, category, prodImagePath1, prodImagePath2,
+				quantity);
 
 		try {
 			String message = ProductDAO.addProduct(prodInfo);
-			if(message.equals("Successfully Added")) {
-			String path = getServletContext().getInitParameter("image_path");
-			String imagePath1 = path + prodImagePath1;
-			String imagePath2 = path + prodImagePath2;
-			image1.write(imagePath1);
-			image2.write(imagePath2);
-			resp.sendRedirect(req.getContextPath()+"/viewProducts");
-			}else {
+			if (message.equals("Successfully Added")) {
+				String path = getServletContext().getInitParameter("image_path");
+				String imagePath1 = path + prodImagePath1;
+				String imagePath2 = path + prodImagePath2;
+				image1.write(imagePath1);
+				image2.write(imagePath2);
+				
+				req.setAttribute("Success", "Product deleted.");
+				RequestDispatcher rd = req.getRequestDispatcher( "/viewProducts");
+				rd.forward(req, resp);
+			} else {
 				req.setAttribute("Error", "Id should be unique");
 				RequestDispatcher rd = req.getRequestDispatcher("/view/JSP/AddProduct.jsp");
 				rd.forward(req, resp);
