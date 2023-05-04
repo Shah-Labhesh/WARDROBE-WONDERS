@@ -1,4 +1,4 @@
-package controller;
+package controller.url;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import model.ProductDAO;
 import model.Products;
 
 @WebServlet("/editProduct")
-public class EditProductDetails extends HttpServlet{
+public class EditProductServlet extends HttpServlet{
 
 	@Override
 	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

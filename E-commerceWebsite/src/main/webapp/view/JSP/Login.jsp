@@ -11,7 +11,7 @@
 <body>
 	<div class="container">
 
-		<form id="login-form" method="post" action="UserLogin">
+		<form id="login-form" method="post" action="${pageContext.request.contextPath}/UserLogin">
 
 			<h2>Login</h2>
 			<br>
@@ -23,7 +23,7 @@
 				name="password" placeholder="********" required><br>
 			<br> <input type="submit" value="Login" />
 			<div class="richtext">
-				Not yet registered? <span><a href="Register.jsp">Sign Up</a></span>
+				Not yet registered? <span><a href="${pageContext.request.contextPath}/SignUp">Sign Up</a></span>
 			</div>
 		</form>
 	</div>

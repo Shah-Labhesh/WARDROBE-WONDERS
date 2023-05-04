@@ -24,10 +24,10 @@
 				</div>
 				<nav style="margin-left: -25px;">
 					<ul>
-						<li><a href="/E-commerceWebsite/home">Home</a></li>
-						<li><a href="/E-commerceWebsite/products">Shop</a></li>
-						<li><a href="/E-commerceWebsite/about">About Us</a></li>
-						<li><a href="/E-commerceWebsite/contact">Contact Us</a></li>
+						<li><a href="#">Home</a></li>
+						<li><a href="${pageContext.request.contextPath}/products">Shop</a></li>
+						<li><a href="${pageContext.request.contextPath}/viewProducts">View Products</a></li>
+						<li><a href="#">View OrderList</a></li>
 					</ul>
 				</nav>
 				<div class="search">
@@ -36,15 +36,14 @@
 						<button class="icon-button"
 							style="background-color: transparent; border: none;">
 							<a href=""><i class="fa fa-search"></i> </a>&nbsp;&nbsp; 
-							<a href="/E-commerceWebsite/cart"><i class="fa fa-shopping-cart"></i></a>&nbsp;&nbsp; 
-							<a href="/SignIn"><i class="fa fa-user"></i></a>&nbsp;&nbsp;
+							<a href="/profile"><i class="fa fa-user"></i></a>&nbsp;&nbsp;
 						</button>
 					</form>
 				</div>
 			</header>
 			<section class="slider">
 				<div class="slide">
-					<img src="../images/s1.png" alt="Image 1">
+					<img src="../../view/images/s1.png" alt="Image 1">
 					<div class="content">
 						<h1>Sisan</h1>
 					</div>

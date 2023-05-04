@@ -28,7 +28,7 @@
 			<label for="Picture">User Image</label>
 			<input type="file" id="Picture" name="userImage" required accept="image/*"> 
 			<input type="submit" value="Register"/> 
-			<div class="richtext">Already have an account?<span> <a href="Login.jsp">LogIn</a></span></div>
+			<div class="richtext">Already have an account?<span> <a href="${pageContext.request.contextPath}/SignIn">LogIn</a></span></div>
 		</form>
 	</div>
 	<script src="script.js"></script>
