@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +15,10 @@
 </head>
 
 <body>
+<jsp:include page="/view/JSP/Header.jsp" />
 	<div class="wrapper">
 		<main>
-			<header style="justify-content: space-around;">
+			<!-- <header style="justify-content: space-around;">
 				<div class="logo">
 					<a href="#" class="brand"><img
 						src="../images/navbar logo.png" alt="Image 1"></a> <br>
@@ -41,7 +43,7 @@
 						</button>
 					</form>
 				</div>
-			</header>
+			</header> -->
 			<section class="slider">
 				<div class="slide">
 					<img src="../images/s1.png" alt="Image 1">
@@ -80,7 +82,31 @@
 			</script>
 
 		</main>
-		<footer class="site-footer">
+		<c:forEach var="prod" items="${productList}">
+
+				<tr>
+					<td><img src="view/images/${prod.productImagePath1}"
+						width="50" height="50"
+						style="margin: 0 20px; border-radius: 10px;" /> <img
+						src="view/images/${prod.productImagePath2}" height="50px"
+						width="50px" style="border-radius: 10px;" /></td>
+					<td>${prod.productId}</td>
+					<td>${prod.productName}</td>
+					<td>${prod.productCat}</td>
+					<td>${prod.productQuantity}</td>
+					<td>${prod.productPrice}</td>
+					<td>${prod.productDescription}</td>
+
+					<td style="justify-content: space-evenly;"><a
+						href="${pageContext.request.contextPath}/editProduct?id=${prod.productId}"><span>&#x270E;</span></a>&emsp;
+						<a
+						href="${pageContext.request.contextPath}/deleteProduct?id=${prod.productId}"><span>&#x1F5D1;</span></a>
+					</td>
+				</tr>
+
+			</c:forEach>
+			
+		<!-- <footer class="site-footer">
 			<img src="../images/LOGO.png" , alt="Description of the image" />
 			<div class="links">
 				<div>
@@ -102,7 +128,10 @@
 				<a class="fa-brands fa-docker"></a>
 			</div>
 		</footer>
+	</div> -->
 	</div>
+		<jsp:include page="/view/JSP/Footer.jsp" />
+	</body>
 </html>
 
 <style>

@@ -28,12 +28,11 @@ public class LoginUser extends HttpServlet {
 			ResultSet rsUser = UserDAO.loginUser(phone);
 			if (rs != null && rs.next()) {
 				if (password.equals(rs.getString("Admin_password"))) {
-					System.out.println(password);
 					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/Admin/Admin.jsp");
 					rd.forward(request, response);
 				} else {
 					request.setAttribute("error", "Invalid phone number or password");
-					RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher(request.getContextPath()+"/SignIn");
 					rd.forward(request, response);
 				}
 			} else if (rsUser != null && rsUser.next()) {
@@ -42,11 +41,11 @@ public class LoginUser extends HttpServlet {
 				if (userPassword.equals(password)) {
 					// Successful login, set the user in the session
 					
-					response.sendRedirect("Login.jsp");
+					response.sendRedirect(request.getContextPath()+"/home");
 				} else {
 
 					request.setAttribute("error", "Invalid phone number or password");
-					RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher(request.getContextPath()+"/SignIn");
 					rd.forward(request, response);
 				}
 
