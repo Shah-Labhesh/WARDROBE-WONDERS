@@ -25,6 +25,7 @@
         padding: 20px;
         width: 200px;
         margin-right: 10px;
+        
       }
     
       .navigation {
@@ -36,7 +37,9 @@
         background-color: #ffffff;
         height: 400px;
         width: 600px;
+        
       }
+
 
     h2 {
       margin-top: 0;
@@ -57,9 +60,6 @@
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
 
     h2{
       display:flex;
@@ -69,6 +69,52 @@
     p{
       margin-left: 2px;
     }
+
+    .profile-image img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: contain;
+      float: right;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      margin-top: -48px;
+    margin-right: 15px;
+    }
+
+    .profile-field label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  margin-top: 40px;
+  margin-left: 25px;
+  font-weight: bold;
+}
+
+    .profile-field span {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.logout {
+  background-color: transparent;
+  border: none;
+  color: blue;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 6px;
+  float: right;
+}
+
+.logout:hover {
+  color: red;
+  border-color: red;
+}
+    
   </style>
 </head>
 <body>
@@ -79,7 +125,7 @@
         </div>
         <nav style="margin-left: -25px;">
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="#">Shop</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="contactUs.html">Contact Us</a></li>
@@ -99,15 +145,42 @@
     <div class="navcard navigation">
       <h2>Navigation</h2>
       <ul>
-        <li><a href="#">Home</a></li>
         <li><a href="#">Profile</a></li>
-        <li><a href="#">Settings</a></li>
+        <li><a href="#">Order History</a></li>
+        <li><a href="./profsettings.html">Update Details</a></li>
       </ul>
     </div>
     <div class="navcard dashboard">
-      <h2>Dashboard</h2>
-      <p>Welcome to your profile!</p>
+      <div class="profile-header">
+        <h2 style="font-size: 30px;">Profile Information</h2>
+      </div>
+      <div class="profile-body">
+        <div class="profile-image">
+          <img id="profile-img" src="../images/userImage/9816704871.png" alt="Profile Image">
+        </div>
+      <div class="profile-body">
+        <div class="profile-field">
+          <label for="name">Name:</label>
+          <span id="name">Sisan Tamang</span>
+        </div>
+        <div class="profile-field">
+          <label for="contact">Contact:</label>
+          <span id="contact">98465161561615</span>
+        </div>
+        <div class="profile-field">
+          <label for="email">Email:</label>
+          <span id="email">raito@g.com</span>
+        </div>
+        <div class="profile-field">
+          <label for="address">Address:</label>
+          <span id="address">siso</span>
+        </div>
+        <div class="profile-field">
+          <button class="logout">log out</button>
+        </div>
+      </div>
     </div>
+    
   </div>
 </body>
 </html>

@@ -200,7 +200,7 @@
       top: 0;
       left: 0;
       max-width: 100%;
-      object-fit: cover;
+      object-fit: scale-down;
       
     }
 
@@ -561,7 +561,10 @@ body{
 		}
 
 		input[type="text"],
-		input[type="email"]
+		input[type="email"],
+    input[type="password"]
+
+
 		 {
 			width: 290px;
 			padding: 12px;
