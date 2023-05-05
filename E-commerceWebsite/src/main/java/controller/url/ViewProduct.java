@@ -19,7 +19,7 @@ public class ViewProduct extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ArrayList<Products> productList = ProductDAO.fetchProductDetails();
-		RequestDispatcher rd = req.getRequestDispatcher("view/JSP/ViewProducts.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("view/Admin/ViewProducts.jsp");
 		req.setAttribute("productList", productList);
 		rd.forward(req, resp);
 	}

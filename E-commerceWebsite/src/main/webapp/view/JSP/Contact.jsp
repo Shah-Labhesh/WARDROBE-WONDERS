@@ -170,7 +170,9 @@ input::placeholder, textarea::placeholder {
 		<div class="card">
 			<h2 style="color: black; margin-top: 50px; margin-left: 103px;">Get
 				in Touch</h2>
-			<form class="contactus">
+			${success}
+			${error}
+			<form class="contactus" action="message" method="post">
 
 				<input type="text" id="name" name="name" placeholder="Your Name"
 					required> <input type="email" id="email" name="email"

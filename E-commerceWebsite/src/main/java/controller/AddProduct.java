@@ -51,7 +51,7 @@ public class AddProduct extends HttpServlet {
 				rd.forward(req, resp);
 			} else {
 				req.setAttribute("Error", "Id should be unique");
-				RequestDispatcher rd = req.getRequestDispatcher("/view/JSP/AddProduct.jsp");
+				RequestDispatcher rd = req.getRequestDispatcher("/view/Admin/AddProduct.jsp");
 				rd.forward(req, resp);
 				System.out.println(message);
 			}

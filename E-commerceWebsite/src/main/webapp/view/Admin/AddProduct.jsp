@@ -5,10 +5,84 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Products</title>
-<link rel="stylesheet" href="../CSS/AddProduct.css">
+
+<style type="text/css">
+ body {
+   font-family: Arial, sans-serif;
+   background-color: #f8f9fa;
+ }
+
+ .container {
+   max-width: 800px;
+   margin: 100px auto;
+   padding: 20px;
+   background-color: #ffffff;
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   display: flex;
+   /* Display container as a flexbox */
+ }
+
+ .form-wrapper {
+   flex: 1;
+   /* Take up all available space in the flex container */
+   padding-right: 20px;
+   /* Add some spacing between form and image */
+ }
+
+ .form-group {
+   margin-bottom: 20px;
+ }
+
+ label {
+   display: block;
+   margin-bottom: 5px;
+   font-weight: bold;
+ }
+
+ input,
+ textarea,
+ select {
+   width: 100%;
+   padding: 8px;
+   border: 1px solid #ced4da;
+   border-radius: 4px;
+ }
+
+ textarea {
+   resize: vertical;
+ }
+
+ button[type="submit"] {
+   display: block;
+   width: 100%;
+   padding: 10px;
+   background-color: #007bff;
+   color: #ffffff;
+   text-align: center;
+   font-weight: bold;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+ }
+
+ .image-wrapper {
+   flex: 1;
+   /* Take up all available space in the flex container */
+   display: flex;
+   /* Display image wrapper as a flexbox */
+   align-items: center;
+   /* Center the image vertically */
+ }
+
+ .image-wrapper img {
+   max-width: 100%;
+   /* Ensure image does not exceed container width */
+ }
+</style>
 </head>
 <body>
-<jsp:include page="/view/JSP/Header.jsp" />
+<jsp:include page="Header.jsp" />
 	<div class="container">
 		<div class="form-wrapper">
 			<h1>Admin Panel - Add Product</h1>
@@ -64,9 +138,9 @@
 			</form>
 		</div>
 		<div class="image-wrapper">
-			<img src="../images/background.jpg" alt="Product Image">
+			<img src="view/Admin/Images/background.jpg" alt="Product Image">
 		</div>
 	</div>
-		<jsp:include page="/view/JSP/Footer.jsp" />
+		<jsp:include page="Footer.jsp" />
 </body>
 </html>

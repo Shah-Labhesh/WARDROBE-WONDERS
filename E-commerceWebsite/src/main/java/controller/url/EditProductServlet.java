@@ -21,7 +21,7 @@ public class EditProductServlet extends HttpServlet{
 		String id = req.getParameter("id");
 		Products prod = new ProductDAO().getProductDetailsById(id);
 		req.setAttribute("product", prod);
-		RequestDispatcher rd = req.getRequestDispatcher("view/JSP/EditProduct.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("view/Admin/EditProduct.jsp");
 		rd.forward(req, resp);
 	}
 	

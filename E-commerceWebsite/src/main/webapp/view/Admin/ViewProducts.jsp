@@ -87,7 +87,7 @@ a {
 </style>
 </head>
 <body>
-<jsp:include page="/view/JSP/Header.jsp" />
+<jsp:include page="Header.jsp" />
 	<div class="container">
 		<h1>Admin View Products</h1>
 		<form class="search-container"
@@ -99,7 +99,7 @@ a {
 			</button>
 		</form>
 		<button class="add-product-button"
-			onclick="location.href='view/JSP/AddProduct.jsp'">
+			onclick="location.href='/E-commerceWebsite/addProducts'">
 			<b>Add Product</b>
 		</button>
 		${success} ${error}
@@ -140,7 +140,7 @@ a {
 		</table>
 	
 
-	<jsp:include page="/view/JSP/Footer.jsp" />
+	<jsp:include page="Footer.jsp" />
 
 </body>
 </html>

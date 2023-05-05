@@ -73,7 +73,7 @@ padding:0;
 </head>
 <body>
 	<footer class="site-footer">
-		<img src="WEB-INF/Images/LOGO.png" alt="Description of the image" />
+		<img src="view/Admin/Images/LOGO.png" alt="Description of the image" />
 		<div class="links">
 			<div>
 				<h2>Platform</h2>

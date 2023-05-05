@@ -170,16 +170,17 @@ main {
 						<li><a href="/E-commerceWebsite/contact">Contact Us</a></li>
 					</ul>
 				</nav>
-				<div class="search">
+				<div class="search" style="display: flex;">
 					<form>
 						<input type="text" placeholder="Search...">
 						<button class="icon-button"
-							style="background-color: transparent; border: none;">
-							<a href=""><i class="fa fa-search"></i> </a>&nbsp;&nbsp; 
-							<a href="/E-commerceWebsite/cart"><i class="fa fa-shopping-cart"></i></a>&nbsp;&nbsp; 
-							<a href="/E-commerceWebsite/SignIn"><i class="fa fa-user"></i></a>&nbsp;&nbsp;
-						</button>
+							style="background-color: transparent; border: none;" onclick="window.location.href='/E-commerceWebsite/search'"><i class="fa fa-search"></i>&nbsp;&nbsp;</button>
 					</form>
+						<button class="icon-button"
+							style="background-color: transparent; border: none;" onclick="window.location.href='/E-commerceWebsite/cart'"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;</button>
+						<button class="icon-button"
+							style="background-color: transparent; border: none;" onclick="window.location.href='/E-commerceWebsite/profile'"><i class="fa fa-user"></i>&nbsp;&nbsp;</button>
+							
 				</div>
 			</header>
 

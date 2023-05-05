@@ -158,13 +158,13 @@ main {
 		<main>
 			<header style="justify-content: space-around;">
 				<div class="logo">
-					<a href="#" class="brand"><img src="WEB-INF/Images/navbar logo.png"
+					<a href="#" class="brand"><img src="view/Admin/Images/Group 88.png"
 						alt="Image 1"></a> <br>
 
 				</div>
 				<nav style="margin-left: -25px;">
 					<ul>
-						<li><a href="#">Home</a></li>
+						<li><a href="/E-commerceWebsite/Admin">Home</a></li>
 						<li><a href="${pageContext.request.contextPath}/viewProducts">View
 								Products</a></li>
 						<li><a href="#">View OrderList</a></li>

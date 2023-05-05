@@ -9,16 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/viewOrder")
-public class ViewOrderServlet extends HttpServlet{
-	
-	
-	
+@WebServlet("/addProducts")
+public class AddProdductServlet extends HttpServlet {
+
 	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		RequestDispatcher rd = req.getRequestDispatcher("view/Admin/ViewOrder.jsp");
-		rd.forward(req, resp);
-	}
-	
-	
+		RequestDispatcher rd = req.getRequestDispatcher("view/Admin/AddProduct.jsp");
+		rd.forward(req, resp);	}
 }
