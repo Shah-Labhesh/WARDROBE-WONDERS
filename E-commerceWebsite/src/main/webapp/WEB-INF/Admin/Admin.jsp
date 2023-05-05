@@ -14,19 +14,22 @@
 </head>
 
 <body>
+	<jsp:include page="Header.jsp" />
+
 	<div class="wrapper">
 		<main>
-			<header style="justify-content: space-around;">
+			<!-- <header style="justify-content: space-around;">
 				<div class="logo">
-					<a href="#" class="brand"><img
-						src="../images/navbar logo.png" alt="Image 1"></a> <br>
+					<a href="#" class="brand"><img src="../images/navbar logo.png"
+						alt="Image 1"></a> <br>
 
 				</div>
 				<nav style="margin-left: -25px;">
 					<ul>
 						<li><a href="#">Home</a></li>
 						<li><a href="${pageContext.request.contextPath}/products">Shop</a></li>
-						<li><a href="${pageContext.request.contextPath}/viewProducts">View Products</a></li>
+						<li><a href="${pageContext.request.contextPath}/viewProducts">View
+								Products</a></li>
 						<li><a href="#">View OrderList</a></li>
 					</ul>
 				</nav>
@@ -35,24 +38,24 @@
 						<input type="text" placeholder="Search...">
 						<button class="icon-button"
 							style="background-color: transparent; border: none;">
-							<a href=""><i class="fa fa-search"></i> </a>&nbsp;&nbsp; 
-							<a href="/profile"><i class="fa fa-user"></i></a>&nbsp;&nbsp;
+							<a href=""><i class="fa fa-search"></i> </a>&nbsp;&nbsp; <a
+								href="/profile"><i class="fa fa-user"></i></a>&nbsp;&nbsp;
 						</button>
 					</form>
 				</div>
-			</header>
+			</header> -->
 			<section class="slider">
 				<div class="slide">
-					<img src="../../view/images/s1.png" alt="Image 1">
+					<img src="WEB-INF/Images/s1.png" alt="Image 1">
 					<div class="content">
 						<h1>Sisan</h1>
 					</div>
 				</div>
 				<div class="slide">
-					<img src="../images/s2.png" alt="Image 2">
+					<img src="WEB-INF/Images/s2.png" alt="Image 2">
 				</div>
 				<div class="slide">
-					<img src="../images/s3.png" alt="Image 3">
+					<img src="WEB-INF/Images/s3.png" alt="Image 3">
 					<div class="content">
 						<h1>Sisan</h1>
 					</div>
@@ -79,7 +82,7 @@
 			</script>
 
 		</main>
-		<footer class="site-footer">
+		<!-- <footer class="site-footer">
 			<img src="../images/LOGO.png" , alt="Description of the image" />
 			<div class="links">
 				<div>
@@ -100,8 +103,11 @@
 				<a class="fa-brands fa-github"></a> <a class="fa-brands fa-linkedin"></a>
 				<a class="fa-brands fa-docker"></a>
 			</div>
-		</footer>
+		</footer> -->
 	</div>
+	<jsp:include page="Footer.jsp" />
+
+</body>
 </html>
 
 <style>

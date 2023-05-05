@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="view/CSS/AddProduct.css">
 </head>
 <body>
+<jsp:include page="/view/JSP/Header.jsp" />
 	<div class="container">
 		<div class="form-wrapper">
 			<h1>Admin Panel - Edit product</h1>
@@ -76,6 +77,7 @@
 				alt="Product Image">
 		</div>
 	</div>
+	<jsp:include page="/view/JSP/Footer.jsp" />
 </body>
 <script>
 	document.getElementById("productDescription").value = "${product.productDescription}";

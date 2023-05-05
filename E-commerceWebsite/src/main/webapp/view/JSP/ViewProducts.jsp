@@ -87,6 +87,7 @@ a {
 </style>
 </head>
 <body>
+<jsp:include page="/view/JSP/Header.jsp" />
 	<div class="container">
 		<h1>Admin View Products</h1>
 		<form class="search-container"
@@ -139,6 +140,7 @@ a {
 		</table>
 	
 
+	<jsp:include page="/view/JSP/Footer.jsp" />
 
 </body>
 </html>

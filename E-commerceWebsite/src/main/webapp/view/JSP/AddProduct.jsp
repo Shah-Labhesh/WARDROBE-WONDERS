@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="../CSS/AddProduct.css">
 </head>
 <body>
+<jsp:include page="/view/JSP/Header.jsp" />
 	<div class="container">
 		<div class="form-wrapper">
 			<h1>Admin Panel - Add Product</h1>
@@ -66,5 +67,6 @@
 			<img src="../images/background.jpg" alt="Product Image">
 		</div>
 	</div>
+		<jsp:include page="/view/JSP/Footer.jsp" />
 </body>
 </html>
