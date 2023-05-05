@@ -73,7 +73,7 @@ padding:0;
 </head>
 <body>
 	<footer class="site-footer">
-		<img src="../images/LOGO.png" alt="Description of the image" />
+		<img src="view/images/LOGO.png" alt="Description of the image" />
 		<div class="links">
 			<div>
 				<h2>Platform</h2>
@@ -87,7 +87,7 @@ padding:0;
 
 		</div>
 		<div class="legal">
-			<span>© 2023 All rights reserved</span> <a>License</a>
+			<span>ï¿½ 2023 All rights reserved</span> <a>License</a>
 		</div>
 		<div class="social-links">
 			<a class="fa-brands fa-github"></a> <a class="fa-brands fa-linkedin"></a>

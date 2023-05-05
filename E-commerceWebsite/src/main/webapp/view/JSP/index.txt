@@ -19,110 +19,64 @@
 				<main>
 					<section class="slider">
 						<div class="slide">
-						  <img src="view/images/s1.png" alt="Image 1">
-						  <div class="content">
-							<h1>Sisan</h1>
-						  </div>
+							<img src="../images/s1.png" alt="Image 1">
+							<div class="content">
+								<h1>Sisan</h1>
+							</div>
 						</div>
 						<div class="slide">
-						  <img src="view/images/s2.png" alt="Image 2">
+							<img src="../images/s2.png" alt="Image 2">
 						</div>
 						<div class="slide">
-						  <img src="view/images/s3.png" alt="Image 3">
-						  <div class="content">
-							<h1>Sisan</h1>
-						  </div>
+							<img src="../images/s3.png" alt="Image 3">
+							<div class="content">
+								<h1>Sisan</h1>
+							</div>
 						</div>
-						
-					  </section>
-					  <script>
+
+					</section>
+					<script>
 						var slideIndex = 0;
 						showSlides();
-				
+
 						function showSlides() {
-						  var i;
-						  var slides = document.getElementsByClassName("slide");
-						  for (i = 0; i < slides.length; i++) {
-							slides[i].style.display = "none";
-						  }
-						  slideIndex++;
-						  if (slideIndex > slides.length) {
-							slideIndex = 1
-						  }
-						  slides[slideIndex - 1].style.display = "block";
-						  setTimeout(showSlides, 4000); // Change image every 4 seconds
+							var i;
+							var slides = document.getElementsByClassName("slide");
+							for (i = 0; i < slides.length; i++) {
+								slides[i].style.display = "none";
+							}
+							slideIndex++;
+							if (slideIndex > slides.length) {
+								slideIndex = 1
+							}
+							slides[slideIndex - 1].style.display = "block";
+							setTimeout(showSlides, 4000); // Change image every 4 seconds
 						}
-					  </script>
-				
-					  <div class="product1">
-						<div class = prodimg1>
-						  <div class="image-container">
-						  <img src="view/images/prodImage/11.png" alt="Image 1">
-						</div>
-						  <div class = "prodDesc">
-							<h1>LINEN COORDS</h1><br>
-							<p>A cool linen blend in pastel shades</p><br>
-				
-				
-				<button class="curved-button1" onclick="window.location.href='${pageContext.request.contextPath}/productDetails?id=1'">Shop Now!</button></div>
-				
-						</div>
-						<div class = prodimg2>
-						  <img style="max-width: 50%;" src="view/images/prodImage/12.png" alt="Image 1">
-						</div>
-						
-					  </div>
-					  <div class="product2">
-						<div class = prodimg2>
-						  <img style="max-width: 67%;" src="view/images/prodImage/22.png" alt="Image 1">
-						</div>
-						<div class = prodimg1>
-						  <div class="image-container">
-							<img src="view/images/prodImage/21.png" alt="Image 1">
-						  </div>
-						  <div class = "prodDesc">
-							<h1>FORMAL BLACK SHIRT</h1><br>
-							<p>100% silk, 100% office-ready</p><br>
-							<button class="curved-button2" onclick="window.location.href='${pageContext.request.contextPath}/productDetails?id=2'">Shop Now!</button>
+					</script>
+					<c:forEach var="prod" items="${productList}">
+						<div class="product1">
+							<div class=prodimg1>
+								<div class="image-container">
+									<img src="view/images/${prod.productImagePath1}" width="50" height="50"
+										style="margin: 0 20px; border-radius: 10px;" />
+								</div>
+								<div class="prodDesc">
+									<h1>${prod.productName}</h1>
+									<p>${prod.productDescription}</p>
+									<button class="curved-button1"
+										onclick="window.location.href='${pageContext.request.contextPath}/productDetails?id=${prod.productId}'">Shop
+										Now!</button>
+								</div>
+
 							</div>
-						</div>
-						
-					  </div>
-					  <div class="product3">
-						<div class = prodimg1>
-						  <div class="image-container">
-							<img src="view/images/prodImage/31.png" alt="Image 1">
-						  </div>
-						  <div class = "prodDesc">
-							<h1>THE WORK JACKET</h1><br>
-							<p>100% cotton, made baggy for comfort</p><br>
-							<button class="curved-button3" onclick="window.location.href='${pageContext.request.contextPath}/productDetails?id=3'">Shop Now!</button>
+							<div class=prodimg2>
+								<img src="view/images/${prod.productImagePath2}" height="50px" width="50px"
+									style="border-radius: 10px;" />
 							</div>
+
 						</div>
-						<div class = prodimg2>
-						  <img src="view/images/prodImage/32.png" alt="Image 1">
-						</div>
-						</div>
-						
-					  </div>
-					  <div class="product4">
-						<div class = prodimg1>
-						  <div class="image-container">
-							<img src="view/images/prodImage/41.png" alt="Image 1">
-						  </div>
-						  <div class = "prodDesc">
-							<h1>JEANS JACKET</h1><br>
-							<p>100% cotton, made baggy for comfort</p><br>
-							<button class="curved-button4" onclick="window.location.href='${pageContext.request.contextPath}/productDetails?id=4'">Shop Now!</button>
-							</div>
-						</div>
-						<div class = prodimg2>
-						  <img style="max-width: 60%;" src="view/images/prodImage/42.png" alt="Image 1">
-						</div>
-						</div>
-						
-					  </div>
-					</main>
+					</c:forEach>
+				</main>
 
 			</div>
 			<jsp:include page="/view/JSP/Footer.jsp" />

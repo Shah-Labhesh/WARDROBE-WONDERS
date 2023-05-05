@@ -158,7 +158,7 @@ main {
 		<main>
 			<header style="justify-content: space-around;">
 				<div class="logo">
-					<a href="#" class="brand"><img src="../images/navbar logo.png"
+					<a href="#" class="brand"><img src="view/images/Group 88.png"
 						alt="Image 1"></a> <br>
 
 				</div>
@@ -177,7 +177,7 @@ main {
 							style="background-color: transparent; border: none;">
 							<a href=""><i class="fa fa-search"></i> </a>&nbsp;&nbsp; 
 							<a href="/E-commerceWebsite/cart"><i class="fa fa-shopping-cart"></i></a>&nbsp;&nbsp; 
-							<a href="/SignIn"><i class="fa fa-user"></i></a>&nbsp;&nbsp;
+							<a href="/E-commerceWebsite/SignIn"><i class="fa fa-user"></i></a>&nbsp;&nbsp;
 						</button>
 					</form>
 				</div>
