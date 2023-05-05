@@ -46,7 +46,7 @@
 			</header> -->
 			<section class="slider">
 				<div class="slide">
-					<img src="WEB-INF/Images/s1.png" alt="Image 1">
+					<img src="Images/s1.png" alt="Image 1">
 					<div class="content">
 						<h1>Sisan</h1>
 					</div>

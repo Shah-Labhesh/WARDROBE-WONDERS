@@ -2,6 +2,7 @@ package controller.url;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,8 @@ public class ViewOrderServlet extends HttpServlet{
 	
 	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		resp.sendRedirect("view/JSP/ViewOrder.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("view/JSP/ViewOrder.jsp");
+		rd.forward(req, resp);
 	}
 	
 	

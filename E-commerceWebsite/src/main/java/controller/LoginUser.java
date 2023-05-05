@@ -41,7 +41,7 @@ public class LoginUser extends HttpServlet {
 				if (userPassword.equals(password)) {
 					// Successful login, set the user in the session
 					
-					response.sendRedirect(request.getContextPath()+"/home");
+					response.sendRedirect("view/JSP/Index.jsp");
 				} else {
 
 					request.setAttribute("error", "Invalid phone number or password");
