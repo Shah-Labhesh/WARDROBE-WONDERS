@@ -13,7 +13,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@WebFilter({"/cart","/profile","/addCart"})
+@WebFilter({"/cart","/profile","/addCart","/AdminProfile"})
 public class LoginFilter implements Filter {
   public void init(FilterConfig filterConfig) throws ServletException {
   }

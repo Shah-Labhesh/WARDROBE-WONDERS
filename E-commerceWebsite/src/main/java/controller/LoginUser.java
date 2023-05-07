@@ -1,8 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,52 +16,77 @@ import javax.servlet.http.HttpSession;
 
 import model.AESEncryption;
 import model.AdminDAO;
+import model.User;
 import model.UserDAO;
 
 @WebServlet("/UserLogin")
 public class LoginUser extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean isValid = false;
 		String phone = request.getParameter("phone");
 		String password = request.getParameter("password");
-	      HttpSession session = request.getSession();
-
-
+		HttpSession session = request.getSession();
+		PrintWriter out = response.getWriter();
 		try {
 			ResultSet rs = AdminDAO.loginAdmin(phone);
-			ResultSet rsUser = UserDAO.loginUser(phone);
+			User user = UserDAO.loginUser(phone);
+
 			if (rs != null && rs.next()) {
 				if (password.equals(rs.getString("Admin_password"))) {
-					isValid=true;
 					session.setAttribute("loggedInId", phone);
-					RequestDispatcher rd = request.getRequestDispatcher("view/Admin/Admin.jsp");
-					rd.forward(request, response);
+					session.setAttribute("loggedInPass", password);
+					out.println("<script type=\"text/javascript\">");
+					out.println("alert('Admin logged In Successfully');");
+					out.println("location='SignIn';");
+					out.println("</script>");
+					RequestDispatcher rd = request.getRequestDispatcher("/Admin");
+					rd.include(request, response);
 				} else {
-					request.setAttribute("error", "Invalid phone number or password");
-					RequestDispatcher rd = request.getRequestDispatcher(request.getContextPath()+"/SignIn");
-					rd.forward(request, response);
+					out.println("<script type=\"text/javascript\">");
+					out.println("alert('User or password incorrect');");
+					out.println("location='SignIn';");
+					out.println("</script>");
+					RequestDispatcher rd = request.getRequestDispatcher("/SignIn");
+					rd.include(request, response);
 				}
-			} else if (rsUser != null && rsUser.next()) {
-				String encryptPassword = rsUser.getString("User_password");
+				return;
+			} else if (user != null) {
+					
+				
+				String encryptPassword = user.getEncryptPassword();
 				String userPassword = AESEncryption.decrypt(encryptPassword);
 				if (userPassword.equals(password)) {
-					isValid=true;
-					session.setAttribute("loggedInId", phone);
 					// Successful login, set the user in the session
-					RequestDispatcher rd = request.getRequestDispatcher("view/JSP/Index.jsp");
-					rd.forward(request, response);
+					session.setAttribute("loggedInId", phone);
+					session.setAttribute("loggedInName", user.getUserName());
+					session.setAttribute("loggedInImg", user.getUserImagePath());
+					session.setAttribute("loggedInEmail", user.getUserEmail());
+					session.setAttribute("loggedInAddress", user.getUserAddress());
+					session.setAttribute("loggedInPass", userPassword);
+					out.println("<script type=\"text/javascript\">");
+					out.println("alert('User logged In successfully');");
+					out.println("location='SignIn';");
+					out.println("</script>");
+					RequestDispatcher rd = request.getRequestDispatcher("/home");
+					rd.include(request, response);
 				} else {
-
-					request.setAttribute("error", "Invalid phone number or password");
-					RequestDispatcher rd = request.getRequestDispatcher(request.getContextPath()+"/SignIn");
-					rd.forward(request, response);
+					request.setAttribute("error", "User or password incorrect");
+					out.println("<script type=\"text/javascript\">");
+					out.println("alert('User or password incorrect');");
+					out.println("location='SignIn';");
+					out.println("</script>");
+					RequestDispatcher rd = request.getRequestDispatcher("/SignIn");
+					rd.include(request, response);
 				}
 
-			} else {
-
-				System.out.println("empty");
-
+			}else {
+				request.setAttribute("error", "User or password incorrect");
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('User or password incorrect');");
+				out.println("location='SignIn';");
+				out.println("</script>");
+				RequestDispatcher rd = request.getRequestDispatcher("/SignIn");
+				rd.include(request, response);
 			}
 		} catch (SQLException e) {
 

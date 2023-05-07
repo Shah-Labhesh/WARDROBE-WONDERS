@@ -111,16 +111,17 @@
 			<p class="product-description">${product.productDescription}</p>
 			<p class="product-category">${product.productCat}</p>
 			<p class="product-price">${product.productPrice}</p>
+			Stock:<p class="product-stock">${product.productQuantity}</p>
 			<div class="product-ratings">
 				<span class="fa fa-star checked"></span> <span
 					class="fa fa-star checked"></span> <span class="fa fa-star checked"></span>
-				<span class="fa fa-star"></span> <span class="fa fa-star"></span> <span>(3.0)</span>
+				<span class="fa fa-star"></span> <span class="fa fa-star"></span> <span>(${product.productRating})</span>
 			</div>
 			<form method="get"
 				action="${pageContext.request.contextPath}/addCart">
 				<input type="hidden" name="id" value="${product.productId}" />
 				<div class="product-quantity">
-					<label for="quantity">Quantity:</label> <input type="text"
+					<label for="quantity">Quantity:</label> <input type="number"
 						id="quantity" name="quan" placeholder="1" required>
 				</div>
 				<button type="submit">Add to Cart</button>

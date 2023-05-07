@@ -57,18 +57,18 @@ nav a {
 	padding: 20px;
 }
 
-.search form {
+#search form {
 	display: flex;
 	align-items: center;
 }
 
-.search input[type="text"] {
+#search input {
 	padding: 8px;
 	border-radius: 3px;
 	border: none;
 }
 
-.search button {
+#search button {
 	padding: 8px;
 	border-radius: 3px;
 	border: none;
@@ -151,6 +151,7 @@ main {
 	text-decoration: none;
 	color: black;
 }
+
 </style>
 </head>
 <body>
@@ -170,11 +171,11 @@ main {
 						<li><a href="/E-commerceWebsite/contact">Contact Us</a></li>
 					</ul>
 				</nav>
-				<div class="search" style="display: flex;">
-					<form>
-						<input type="text" placeholder="Search...">
+				<div id="search" style="display: flex;">
+					<form action="/E-commerceWebsite/userSearchProduct" method="get">
+						<input type="text" id="searchField" name="search" placeholder="Search..." required>
 						<button class="icon-button"
-							style="background-color: transparent; border: none;" onclick="window.location.href='/E-commerceWebsite/search'"><i class="fa fa-search"></i>&nbsp;&nbsp;</button>
+							style="background-color: transparent; border: none;"><i class="fa fa-search"></i>&nbsp;&nbsp;</button>
 					</form>
 						<button class="icon-button"
 							style="background-color: transparent; border: none;" onclick="window.location.href='/E-commerceWebsite/cart'"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;</button>

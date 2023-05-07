@@ -17,7 +17,7 @@ import model.Products;
 @WebServlet("/up")
 @MultipartConfig
 public class UpdateProductDetails extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,24 +30,37 @@ public class UpdateProductDetails extends HttpServlet {
 		Part image2 = req.getPart("img2");
 		String category = req.getParameter("cat");
 		String quantity = req.getParameter("quan");
+		String rating = req.getParameter("prodRating");
 		String prodImagePath1 = "prodImage/" + id + "1.png";
 		String prodImagePath2 = "prodImage/" + id + "2.png";
 
-		Products prodInfo = new Products(id, name, description, price, category, prodImagePath1, prodImagePath2,
+		Products prodInfo = new Products(id, name, description, price, category, rating, prodImagePath1, prodImagePath2,
 				quantity);
 
 		String message = ProductDAO.updateProduct(prodInfo);
-		if (message.equals("Successfully Updated") && image1 != null && image1.getInputStream().available() > 0
-				&& image2 != null && image2.getInputStream().available() > 0) {
+		if (message.equals("Successfully Updated")) {
 			String path = getServletContext().getInitParameter("image_path");
-			String imagePath1 = path + prodImagePath1;
-			String imagePath2 = path + prodImagePath2;
-			image1.write(imagePath1);
-			image2.write(imagePath2);
-			resp.sendRedirect(req.getContextPath()+"/viewProducts");
-		} 
+
 			
-		resp.sendRedirect(req.getContextPath()+"/viewProducts");
-			System.out.println(message);
+
+			if (image1 != null && image1.getInputStream().available() > 0) {
+				String imagePath1 = path + prodImagePath1;
+				image1.write(imagePath1);
+			}
+			if (image2 != null && image2.getInputStream().available() > 0) {
+				String imagePath2 = path + prodImagePath2;
+
+				image2.write(imagePath2);
+			}
+			if (resp.isCommitted()) {
+				RequestDispatcher rd = req.getRequestDispatcher("/viewProducts");
+				rd.forward(req, resp);
+			}
+			
+		}
+
+		RequestDispatcher rd = req.getRequestDispatcher("/viewProducts");
+		rd.forward(req, resp);
+
 	}
 }

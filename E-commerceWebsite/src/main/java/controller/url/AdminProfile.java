@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/profile")
-public class ProfileServlet extends HttpServlet {
+@WebServlet("/AdminProfile")
+public class AdminProfile extends HttpServlet {
 
 	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd = req.getRequestDispatcher("view/JSP/Profile.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("view/Admin/AdminProfile.jsp");
 
 		rd.forward(req, resp);
 	}

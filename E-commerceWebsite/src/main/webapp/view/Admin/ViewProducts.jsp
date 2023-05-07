@@ -12,9 +12,14 @@
 <title>Admin View Products</title>
 <style>
 /* Add CSS styles here for the blue and white theme */
+*{
+margin:0;
+padding:0;
+}
 body {
 	background-color: #f8f8f8;
 	font-family: Arial, sans-serif;
+
 }
 
 .container {
@@ -109,6 +114,7 @@ a {
 				<th>Product ID</th>
 				<th>Product Name</th>
 				<th>Category</th>
+				<th>Rating</th>
 				<th>Quantity</th>
 				<th>Price</th>
 				<th>Description</th>
@@ -125,6 +131,7 @@ a {
 					<td>${prod.productId}</td>
 					<td>${prod.productName}</td>
 					<td>${prod.productCat}</td>
+					<td>${prod.productRating}</td>
 					<td>${prod.productQuantity}</td>
 					<td>${prod.productPrice}</td>
 					<td>${prod.productDescription}</td>
@@ -140,7 +147,7 @@ a {
 		</table>
 	
 
-	<jsp:include page="Footer.jsp" />
 
 </body>
+	<jsp:include page="Footer.jsp" />
 </html>

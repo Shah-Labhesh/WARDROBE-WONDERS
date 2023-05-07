@@ -75,8 +75,9 @@ p {
 				bibendum aliquam, velit diam viverra lectus, a lacinia magna nibh ac
 				nulla.</p>
 			<p>
-				123 Main Street<br>Anytown, USA 12345<br>Phone: (123)
-				456-7890<br>Email: info@ourcompany.com
+				Sundarharaicha-4, Morang<br>Phone: +977 9819029882<br>Email: w-wonders@gmail.com
+
+
 			</p>
 		</section>
 	</div>

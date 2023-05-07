@@ -27,6 +27,7 @@ public class AddProduct extends HttpServlet {
 		String name = req.getParameter("prodName");
 		String description = req.getParameter("prodDesc");
 		String price = req.getParameter("prodPrice");
+		String rating = req.getParameter("prodRating");
 		Part image1 = req.getPart("prodImg1");
 		Part image2 = req.getPart("prodImg2");
 		String category = req.getParameter("prodCat");
@@ -34,7 +35,7 @@ public class AddProduct extends HttpServlet {
 		String prodImagePath1 = "prodImage/" + id + "1.png";
 		String prodImagePath2 = "prodImage/" + id + "2.png";
 
-		Products prodInfo = new Products(id, name, description, price, category, prodImagePath1, prodImagePath2,
+		Products prodInfo = new Products(id, name, description, price, category, rating, prodImagePath1, prodImagePath2,
 				quantity);
 
 		try {

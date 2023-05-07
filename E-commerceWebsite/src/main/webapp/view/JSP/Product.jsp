@@ -180,15 +180,15 @@
 			<div class="filter-item">
 				<h4>Rating:</h4>
 				<ul>
-					<li><input type="checkbox" name="rating" value="5"> 5
+					<li><input type="radio" name="rating" value="5"> 5
 						stars</li>
-					<li><input type="checkbox" name="rating" value="4"> 4
+					<li><input type="radio" name="rating" value="4"> 4
 						stars</li>
-					<li><input type="checkbox" name="rating" value="3"> 3
+					<li><input type="radio" name="rating" value="3"> 3
 						stars</li>
-					<li><input type="checkbox" name="rating" value="2"> 2
+					<li><input type="radio" name="rating" value="2"> 2
 						stars</li>
-					<li><input type="checkbox" name="rating" value="1"> 1
+					<li><input type="radio" name="rating" value="1"> 1
 						star</li>
 				</ul>
 			</div>
@@ -223,8 +223,7 @@
 					<button class="shop-now-btn"
 						onclick="window.location.href='${pageContext.request.contextPath}/productDetails?id=${prod.productId}'">Shop
 						Now</button>
-					<a
-						href="${pageContext.request.contextPath}/addCart?id=${prod.productId}&quan=1"><i
+					<a href="${pageContext.request.contextPath}/addCart?id=${prod.productId}&quan=1"><i
 						class="fa-solid fa-cart-plus"></i></a>
 						
 						

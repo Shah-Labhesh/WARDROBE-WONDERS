@@ -124,7 +124,6 @@ main {
 	margin: 0 10px;
 }
 
-
 .social-links {
 	display: flex;
 	justify-content: center;
@@ -147,7 +146,7 @@ main {
 	cursor: pointer;
 }
 
-.icon-button a{
+.icon-button a {
 	text-decoration: none;
 	color: black;
 }
@@ -158,8 +157,8 @@ main {
 		<main>
 			<header style="justify-content: space-around;">
 				<div class="logo">
-					<a href="#" class="brand"><img src="view/Admin/Images/Group 88.png"
-						alt="Image 1"></a> <br>
+					<a href="#" class="brand"><img
+						src="view/Admin/Images/Group 88.png" alt="Image 1"></a> <br>
 
 				</div>
 				<nav style="margin-left: -25px;">
@@ -171,14 +170,16 @@ main {
 					</ul>
 				</nav>
 				<div class="search">
-					<form>
-						<input type="text" placeholder="Search...">
-						<button class="icon-button"
-							style="background-color: transparent; border: none;">
-							<a href=""><i class="fa fa-search"></i> </a>&nbsp;&nbsp; <a
-								href="/profile"><i class="fa fa-user"></i></a>&nbsp;&nbsp;
-						</button>
-					</form>
+
+
+
+					<button class="icon-button"
+						style="background-color: transparent; border: none;"
+						onclick="window.location.href='${pageContext.request.contextPath}/AdminProfile'">
+						<i class="fa fa-user"></i>&nbsp;&nbsp;
+					</button>
+
+
 				</div>
 			</header>
 

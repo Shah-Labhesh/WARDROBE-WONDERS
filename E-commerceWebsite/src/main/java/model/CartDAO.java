@@ -71,6 +71,33 @@ public class CartDAO {
 		return null;
 	}
 	
+	public static ArrayList<Order> getCartDetailsForOrder(String user) throws SQLException {
+		ArrayList<Order> order = new ArrayList<Order>();
+		try {
+			String getQuery = "SELECT * from carts WHERE User_phone = ?";
+			Connection con = getConnection();
+			PreparedStatement pt = con.prepareStatement(getQuery);
+			pt.setNString(1, user);
+			ResultSet table = pt.executeQuery();
+			while (table.next()) {
+				int id = table.getInt("Cart_Id");
+				String pId = table.getNString("Prod_Id");
+				String userPhone = table.getNString("User_phone");
+				int quantity = table.getInt("Quantity");
+
+				Order od = new Order(id,pId,userPhone,quantity);
+				order.add(od);
+			}
+			con.close();
+			return order;
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public static String deleteCartItem(String id) {
 		try {
 

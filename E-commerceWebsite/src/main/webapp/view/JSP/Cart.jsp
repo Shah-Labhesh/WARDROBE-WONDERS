@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="javax.servlet.jsp.JspTagException" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -12,6 +13,12 @@
 body {
 	font-family: Arial, sans-serif;
 	background-color: #f0f0f0;
+}
+
+body {
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica,
+		Arial, sans-serif;
 }
 
 .container {
@@ -77,6 +84,7 @@ th {
 					<th>Price</th>
 					<th>Quantity</th>
 					<th>Total</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -88,18 +96,20 @@ th {
 						<td><img src="view/images/${ct.img}" width="50" height="50"
 							style="margin: 0 20px; border-radius: 10px;" /></td>
 						<td>${ct.name}</td>
-						<%-- Remove $ sign and cast price to integer --%>
+						<%-- Remove $ sign--%>
 						<c:set var="price" value="${ct.price.substring(1)}" />
 						<td>$${price}</td>
 						<td>${ct.quan}</td>
 						<td>$${price * ct.quan}</td>
-						<td><a
+						<td><a onclick="alert()"
 							href="${pageContext.request.contextPath}/deleteCartItem?id=${ct.id}"><span>&#x1F5D1;</span></a>
 						</td>
 					</tr>
 					<%-- Calculate total price --%>
 					<c:set var="totalPrice" value="${totalPrice + (price * ct.quan)}" />
 				</c:forEach>
+				<%-- <c:set target="${session}" property="totalPrice" value="${totalPrice}" /> --%>
+				<%session.setAttribute("totalPrice",pageContext.getAttribute("totalPrice"));  %>
 				<tr>
 					<td colspan="4" class="total">Total:</td>
 					<%-- Add $ sign back to the total price --%>
@@ -107,7 +117,9 @@ th {
 				</tr>
 			</tbody>
 		</table>
-		<button onclick="checkout()">Checkout</button>
+		
+		<button
+			onclick="window.location.href'/E-commerceWebsite/cartCheckOut''">Checkout</button>
 	</div>
 
 	<script>
@@ -115,6 +127,10 @@ th {
 		function checkout() {
 			alert("Redirecting to checkout page...");
 			// Add your code to redirect to checkout page here
+		}
+		function alert(){
+			alert("Cart item deleted!")
+			
 		}
 	</script>
 

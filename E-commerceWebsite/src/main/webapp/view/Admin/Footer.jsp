@@ -1,99 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-<style type="text/css">
-*{
-margin:0;
-padding:0;
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+footer {
+	margin: 0;
+	padding: 0;
+	background-color: #160e0ec8;
+	color: #ffffff;
+	padding: 50px 0;
 }
-.site-footer {
-	background-color: #333;
-	color: #fff;
+
+footer h5 {
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+footer .row {
 	display: flex;
-	flex-direction: column;
+	margin-left:20px;
+}
+
+footer p {
+	font-size: 14px;
+	line-height: 1.5;
+	margin-bottom: 20px;
+}
+
+footer .logo {
+	display: flex;
+	margin-left:500px;
 	justify-content: center;
 	align-items: center;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	height: 250px;
-	width: 100%;
-	text-align: center;
-	bottom: 0;
 }
 
-.site-footer img {
-	border-radius: 70%;
-	height: 50%;
-}
 
-.links {
-	display: flex;
-	justify-content: space-around;
-	margin-bottom: 20px;
-	width: 100%;
-}
-
-.links a {
-	color: #fff;
-	margin: 0 10px;
-}
-
-.legal {
-	margin-bottom: 0px;
-	text-align: center;
-	width: 100%;
-}
-
-.social-links {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-}
-
-.fa-brands {
-	color: #fff;
-	font-size: 24px;
-	margin: 0 10px;
-}
-
-.content {
-	position: absolute;
-	margin-left: 20%;
-	top: 0;
-	left: 0;
-	z-index: 1;
-}
 </style>
 </head>
 <body>
-	<footer class="site-footer">
-		<img src="view/Admin/Images/LOGO.png" alt="Description of the image" />
-		<div class="links">
-			<div>
-				<h2>Platform</h2>
-				<a>Directus Core</a>
+	<footer>
+		<div class="">
+			<div class="row">
+				<div class="col-md-4">
+					<h5>Contact Us</h5>
+					<p>
+						Sundarharaicha-4, Morang<br>Phone:
+						+977 9819029882<br>Email: w-wonders@gmail.com
+					</p>
+				</div>
+				<div class="col-md-4">
+					<div class="logo">
+						<img style="max-width: 150px; border-radius:150px;"  src="view/Admin/Images/LOGO.png" alt="E-commerce Logo">
+					</div>
+				</div>
 			</div>
-			<div>
-				<h2>Cloud</h2>
-				<a>Directus Core</a>
-			</div>
-
-
-		</div>
-		<div class="legal">
-			<span>© 2023 All rights reserved</span> <a>License</a>
-		</div>
-		<div class="social-links">
-			<a class="fa-brands fa-github"></a> <a class="fa-brands fa-linkedin"></a>
-			<a class="fa-brands fa-docker"></a>
 		</div>
 	</footer>
+
 
 </body>
 </html>

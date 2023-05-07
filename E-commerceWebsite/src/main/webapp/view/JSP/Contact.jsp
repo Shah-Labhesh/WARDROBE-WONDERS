@@ -94,19 +94,6 @@ label {
 	margin-top: 10px;
 }
 
-input[type="text"], input[type="email"] {
-	width: 290px;
-	padding: 12px;
-	border: none;
-	border-radius: 4px;
-	box-sizing: border-box;
-	margin-top: 6px;
-	margin-bottom: 16px;
-	resize: vertical;
-	outline: none !important;
-	background-color: #f9f6f6;
-	height: 45px;
-}
 
 textarea {
 	width: 290px;
@@ -158,6 +145,23 @@ h2 {
 	color: #fff;
 }
 
+
+    
+
+
+#name, #email		 {
+			width: 290px;
+			padding: 12px;
+			border: none;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-top: 6px;
+			margin-bottom: 16px;
+			resize: vertical;
+            outline: none !important;
+            background-color: #f9f6f6;
+            height: 45px;
+		}
 input::placeholder, textarea::placeholder {
 	font-family: Arial, sans-serif;
 	font-size: 14px;

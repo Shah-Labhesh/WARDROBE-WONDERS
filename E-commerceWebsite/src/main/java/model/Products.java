@@ -6,11 +6,12 @@ public class Products {
 	private String productDescription;
 	private String productPrice;
 	private String productCat;
+	private String productRating;
 	private String productImagePath1;
 	private String productImagePath2;
 	private String productQuantity;
 
-	public Products(String productId, String productName, String productDescription, String productPrice, String productCat,
+	public Products(String productId, String productName, String productDescription, String productPrice, String productCat, String productRating,
 			String productImagePath1, String productImagePath2, String productQuantity) {
 
 		this.productId = productId;
@@ -18,6 +19,7 @@ public class Products {
 		this.productDescription = productDescription;
 		this.productPrice = productPrice;
 		this.productCat = productCat;
+		this.productRating = productRating;
 		this.productImagePath1 = productImagePath1;
 		this.productImagePath2 = productImagePath2;
 		this.productQuantity = productQuantity;
@@ -37,6 +39,15 @@ public class Products {
 
 	public void setProductCat(String productCat) {
 		this.productCat = productCat;
+	}
+	
+
+	public String getProductRating() {
+		return productRating;
+	}
+
+	public void setProductRating(String productRating) {
+		this.productRating = productRating;
 	}
 
 	public String getProductName() {

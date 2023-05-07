@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Page</title>
+    <style>
+      /* Styles for the body */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      
+      /* Styles for the container */
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      
+      /* Styles for the heading */
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin: 0;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #ccc;
+      }
+      
+      /* Styles for the table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      
+      th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+      
+      /* Styles for the order button */
+      .order-button {
+        display: block;
+        width: 150px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      
+      .order-button:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="container">
+      <h1>Order Summary</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Product A</td>
+            <td>$10.00</td>
+            <td>2</td>
+            <td>$20.00</td>
+          </tr>
+          <tr>
+            <td>Product B</td>
+            <td>$20.00</td>
+            <td>1</td>
+            <td>$20.00</td>
+          </tr>
+          <tr>
+            <td>Product C</td>
+            <td>$30.00</td>
+            <td>3</td>
+            <td>$90.00</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Total</strong></td>
+            <td>$130.00</td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="#" class="order-button">Place Order</a>
+    </div>
+  </body>
+</html>

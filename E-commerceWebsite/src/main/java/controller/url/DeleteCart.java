@@ -18,9 +18,15 @@ public class DeleteCart extends HttpServlet {
 
 		String id = req.getParameter("id");
 		String message = CartDAO.deleteCartItem(id);
-		if (message.equals("Successfully Deleted")) {
+		if(message==null) {
+			RequestDispatcher rd = req.getRequestDispatcher("/cart");
+			req.setAttribute("error", "cannot be delete");
+			rd.forward(req, res);
+		}
+		else if (message.equals("Successfully Deleted")) {
 			if (!res.isCommitted()) {
 				RequestDispatcher rd = req.getRequestDispatcher("/cart");
+				req.setAttribute("success", "Product deleted from cart");
 				rd.forward(req, res);
 			}
 		} 
