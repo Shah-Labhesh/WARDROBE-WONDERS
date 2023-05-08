@@ -156,38 +156,18 @@ p {
 		</div>
 		<div class="navcard dashboard">
 			<div class="profile-header">
-				<h2 style="font-size: 30px;">Update Profile</h2>
+				<h2 style="font-size: 30px;">Change Password</h2>
 			</div>
-			<form action="${pageContext.request.contextPath}/saveUserDetails" method="post"
-				enctype="multipart/form-data">
+			<form action="${pageContext.request.contextPath}/updatePass" method="post">
 				<div class="profile-body">
-					<input type="file" name="userImage" id="userImage" onchange="onPickImage()" accept="image/*"/>
-					<div class="profile-image">
-						<img id="profile-img"
-							src="view/images/${ur.userImagePath}" id="image" alt="Profile Image">
-
-					</div>
 					<div class="profile-field">
-						<label for="name">Name:</label> <input type="text" id="name"
-							name="name" value="${ur.userName}" required>
+						<label for="oldPass">Old Password:</label> <input type="password" id="oldPass"
+							name="oldPass" required>
 					</div>
+					
 					<div class="profile-field">
-						<label for="contact">Contact:</label> <input type="text"
-							id="contact" name="contact" value="${ur.userContact}"
-							readonly="readonly" required>
-					</div>
-					<div class="profile-field">
-						<label for="email">Email:</label> <input type="text" id="email"
-							name="email" value="${ur.userEmail}" required>
-					</div>
-					<div class="profile-field">
-						<label for="address">Address:</label> <input type="text"
-							id="address" name="address"
-							value="${ur.userAddress}" required>
-					</div>
-					<div class="profile-field">
-						<label for="confirm-password">Password:</label> <input
-							type="password" id="confirm-password" name="confirm-password"
+						<label for="newPass">New Password:</label> <input
+							type="password" id="newPass" name="newPass"
 							required>
 					</div>
 					<div class="profile-field">
@@ -202,12 +182,6 @@ p {
 	</div>
 
 	<jsp:include page="Footer.jsp" />
-<script>
-	function onPickImage() {
-		var image = document.getElementById("profile-img");
-		var imageChooser = document.getElementById("userImage");
-		image.src = URL.createObjectURL(imageChooser.files[0]);
-	}
-</script>
+
 </body>
 </html>

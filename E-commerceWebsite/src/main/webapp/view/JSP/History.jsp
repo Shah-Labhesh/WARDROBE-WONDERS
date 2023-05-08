@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -136,30 +138,11 @@ p {
 				</div>
 				<div class="navcard dashboard">
 					<div class="profile-header">
-						<h2 style="font-size: 30px;">Profile Information</h2>
+						<h2 style="font-size: 30px;">Order History</h2>
 					</div>
 					<div class="profile-body">
-						<div class="profile-image">
-							<img id="profile-img" src="view/images/${sessionScope.loggedInImg}"
-								alt="Profile Image">
-						</div>
-						<div class="profile-body">
-							<div class="profile-field">
-								<label for="name">Name:</label> <span id="name">${sessionScope.loggedInName}</span>
-							</div>
-							<div class="profile-field">
-								<label for="contact">Contact:</label> <span id="contact">${sessionScope.loggedInId}</span>
-							</div>
-							<div class="profile-field">
-								<label for="email">Email:</label> <span id="email">${sessionScope.loggedInEmail}</span>
-							</div>
-							<div class="profile-field">
-								<label for="address">Address:</label> <span id="address">${sessionScope.loggedInAddress}</span>
-							</div>
-							<div class="profile-field">
-								<button class="logout" onclick="window.location.href='${pageContext.request.contextPath}/logout'">log out</button>
-							</div>
-						</div>
+					
+						
 					</div>
 				</div>
 			</div>

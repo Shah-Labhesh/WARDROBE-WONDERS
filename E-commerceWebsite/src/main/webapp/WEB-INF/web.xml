@@ -13,9 +13,13 @@
   <param-value>E:/Servlet-CW/E-commerceWebsite/src/main/webapp/view/images/</param-value>
   </context-param>
   
-  <!-- <error-page>
+  <error-page>
   <error-code>404</error-code>
   <location>/view/HTML/404.html</location>
-  </error-page> -->
+  </error-page>
+  <error-page>
+  <error-code>500</error-code>
+  <location>/view/HTML/500.html</location>
+  </error-page>
 
 </web-app>

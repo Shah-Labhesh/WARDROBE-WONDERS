@@ -91,6 +91,7 @@ th {
 				<c:set var="totalPrice" value="0" />
 
 				<c:forEach var="ct" items="${cartList}">
+				<c:set var="Price" value="0" />
 
 					<tr>
 						<td><img src="view/images/${ct.img}" width="50" height="50"
@@ -101,6 +102,7 @@ th {
 						<td>$${price}</td>
 						<td>${ct.quan}</td>
 						<td>$${price * ct.quan}</td>
+						<c:set var="Price" value="${(price * ct.quan)}" />
 						<td><a onclick="alert()"
 							href="${pageContext.request.contextPath}/deleteCartItem?id=${ct.id}"><span>&#x1F5D1;</span></a>
 						</td>
@@ -109,7 +111,7 @@ th {
 					<c:set var="totalPrice" value="${totalPrice + (price * ct.quan)}" />
 				</c:forEach>
 				<%-- <c:set target="${session}" property="totalPrice" value="${totalPrice}" /> --%>
-				<%session.setAttribute("totalPrice",pageContext.getAttribute("totalPrice"));  %>
+				<%session.setAttribute("totalPrice",pageContext.getAttribute("Price"));  %>
 				<tr>
 					<td colspan="4" class="total">Total:</td>
 					<%-- Add $ sign back to the total price --%>
@@ -119,7 +121,7 @@ th {
 		</table>
 		
 		<button
-			onclick="window.location.href'/E-commerceWebsite/cartCheckOut''">Checkout</button>
+			onclick="window.location.href='/E-commerceWebsite/cartCheckOut'">Checkout</button>
 	</div>
 
 	<script>

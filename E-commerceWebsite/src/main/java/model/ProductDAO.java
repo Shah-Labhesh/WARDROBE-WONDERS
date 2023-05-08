@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 
 public class ProductDAO {
@@ -40,6 +41,8 @@ public class ProductDAO {
 			con.close();
 			return null;
 
+		} catch (SQLIntegrityConstraintViolationException e) {
+			return "Duplicate entry: " + pdInfo.getProductId();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,9 +69,10 @@ public class ProductDAO {
 				String imagePath2 = table.getString(6);
 				String category = table.getString(7);
 				String quantity = table.getString(8);
-				String rating= table.getString(9);
+				String rating = table.getString(9);
 
-				Products prod = new Products(id, name, description, price, category,rating, imagePath1, imagePath2, quantity);
+				Products prod = new Products(id, name, description, price, category, rating, imagePath1, imagePath2,
+						quantity);
 				productList.add(prod);
 			}
 			con.close();
@@ -103,8 +107,8 @@ public class ProductDAO {
 				String imagePath2 = table.getString(6);
 				String category = table.getString(7);
 				String quantity = table.getString(8);
-				String rating= table.getString(9);
-				prod = new Products(id2, name, description, price, category,rating, imagePath1, imagePath2, quantity);
+				String rating = table.getString(9);
+				prod = new Products(id2, name, description, price, category, rating, imagePath1, imagePath2, quantity);
 			}
 			con.close();
 
@@ -185,7 +189,7 @@ public class ProductDAO {
 			Connection con = getConnection();
 			PreparedStatement pt = con.prepareStatement(searchQuery);
 			pt.setString(1, "%" + value + "%");
-			pt.setString(2,  value );
+			pt.setString(2, value);
 			pt.setString(3, "%" + value + "%");
 			pt.setString(4, "%" + value + "%");
 
@@ -199,9 +203,10 @@ public class ProductDAO {
 				String imagePath2 = table.getString(6);
 				String category = table.getString(7);
 				String quantity = table.getString(8);
-				String rating= table.getString(9);
-				
-				Products pd = new Products(id, name, description, price, category, rating, imagePath1, imagePath2, quantity);
+				String rating = table.getString(9);
+
+				Products pd = new Products(id, name, description, price, category, rating, imagePath1, imagePath2,
+						quantity);
 				prod.add(pd);
 			}
 			con.close();

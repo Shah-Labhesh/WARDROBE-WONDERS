@@ -78,31 +78,58 @@ button[type="submit"] {
 	/* Ensure image does not exceed container width */
 }
 
-
 .form-group label.radio-label {
-  display: inline-block;
-  cursor: pointer;
-  padding: 5px 10px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  margin-right: 10px;
+	display: inline-block;
+	cursor: pointer;
+	padding: 5px 10px;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+	margin-right: 10px;
 }
 
-.form-group input[type="radio"]:checked + label.radio-label {
-  background-color: #3399ff;
-  color: #fff;
+.form-group input[type="radio"]:checked+label.radio-label {
+	background-color: #3399ff;
+	color: #fff;
 }
-
 </style>
 </head>
 <body>
 	<jsp:include page="Header.jsp" />
+	<%-- Add this code at the top of the JSP page --%>
+	<%
+	String successMsg = (String) request.getAttribute("Success");
+	%>
+	<%
+	String errorMsg = (String) request.getAttribute("Error");
+	%>
+	<%-- End of code to add --%>
+
+	<%-- Add this code where you want to display the alert message --%>
+	<%
+	if (successMsg != null) {
+	%>
+	<script type="text/javascript">
+        alert("<%=successMsg%>");
+        location.href = "/viewProducts";
+    </script>
+	<%
+	} else if (errorMsg != null) {
+	%>
+	<script type="text/javascript">
+        alert("<%=errorMsg%>");
+		location.href = "/addProducts";
+	</script>
+	<%
+	}
+	%>
+	<%-- End of code to add --%>
+
 	<div class="container">
 		<div class="form-wrapper">
 			<h1>Admin Panel - Add Product</h1>
-			<form action="../../addProduct" method="post"
+			<form action="/E-commerceWebsite/addProduct" method="post"
 				enctype="multipart/form-data">
-				<p>${error}</p>
+
 
 				<div class="form-group">
 					<label for="productId">Product ID:</label> <input type="text"

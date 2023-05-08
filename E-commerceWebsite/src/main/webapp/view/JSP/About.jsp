@@ -1,86 +1,137 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<style type="text/css">
-body {
-	font-family: Arial, sans-serif;
-	font-size: 16px;
-	line-height: 1.5;
-	color: #333;
-	background-color: #f5f5f5;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+   button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #2196f3;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
 }
-/* Style the header */
-header {
-	background-color: #333;
-	color: #fff;
-	padding: 20px;
-	text-align: center;
+
+
+button:hover {
+  background-color: #0d8bf3;
 }
-/* Style the content container */
-.container {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: #fff;
-	border: 1px solid #ddd;
-	box-shadow: 0 0 10px #ddd;
+
+    .about {
+      margin-top: 50px;
+      text-align: center;
+      background-color: aliceblue;
+    }
+
+    .about h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 50px;
+    }
+
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .team-member {
+      width: 25%;
+      height: 400px; /* Set a fixed height for all team members */
+      margin-right: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .container {
+      background-color: aliceblue;
+    }
+    
+    .team-member img {
+      max-width: 200px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .team-member h2 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .team-member p {
+      font-size: 18px;
+      color: #666;
+      margin: 0;
+    }
+    h2 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
 }
-/* Style the heading of each section */
-h2 {
-	font-size: 24px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-/* Style the paragraphs */
-p {
-	margin-bottom: 20px;
-}
-</style>
+
+  </style>
 </head>
 <body>
-	<jsp:include page="/view/JSP/Header.jsp" />
-
-	<div class="container" style="margin: 30px auto;">
-		<section>
-			<h2>Our Story</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-				in mi ac enim ultricies finibus ac nec ante. Sed id tellus mauris.
-				Fusce at neque vitae ipsum lacinia suscipit vel in est. Nulla
-				facilisi.</p>
-			<p>Proin aliquet quam at eros luctus blandit. Vivamus eu justo
-				vitae elit faucibus lacinia vel vel massa. Fusce tincidunt, lorem eu
-				bibendum aliquam, velit diam viverra lectus, a lacinia magna nibh ac
-				nulla.</p>
-		</section>
-		<section>
-			<h2>Team</h2>
-			<p>Our team is made up of highly skilled professionals who are
-				dedicated to delivering exceptional results for our clients. We
-				believe in fostering a culture of collaboration and innovation, and
-				we are always looking for new ways to improve our processes and stay
-				ahead of the curve.</p>
-		</section>
-		<section>
-			<h2>Company Info</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-				in mi ac enim ultricies finibus ac nec ante. Sed id tellus mauris.
-				Fusce at neque vitae ipsum lacinia suscipit vel in est. Nulla
-				facilisi.</p>
-			<p>Proin aliquet quam at eros luctus blandit. Vivamus eu justo
-				vitae elit faucibus lacinia vel vel massa. Fusce tincidunt, lorem eu
-				bibendum aliquam, velit diam viverra lectus, a lacinia magna nibh ac
-				nulla.</p>
-			<p>
-				Sundarharaicha-4, Morang<br>Phone: +977 9819029882<br>Email: w-wonders@gmail.com
-
-
-			</p>
-		</section>
-	</div>
-	<jsp:include page="/view/JSP/Footer.jsp" />
+<jsp:include page="Header.jsp"/>
+  <section class="about">
+    <h1>About Us</h1>
+    <p>We are a team of experienced professionals who are passionate about providing quality products and excellent customer service. Get to know us better below!</p>
+    <div class="container">
+      <div class="team-members">
+        <div class="team-member">
+          <img src="view/images/sajjan.jpg" alt="Team Member 1">
+          <h2>Sajjan Poudel</h2>
+          <h3>Sacarologist@gmail.com</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ratione officiis aperiam quam maiores quidem rerum ut aliquid consectetur sequi ipsa a excepturi debitis sed quis magnam quo, nostrum ab!</p>
+        </div>
+        <div class="team-member">
+          <img src="view/images/labs.jpg" alt="Team Member 2">
+          <h2>Labesh Shah</h2>
+          <h3>Labesh.Shah@gmail.com</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur praesentium quam vitae magni et esse cum quos, distinctio expedita magnam corrupti autem, consequatur itaque inventore. Nulla recusandae cumque exercitationem itaque?</p>
+        </div>
+      </div>
+      <div class="team-members">
+        <div class="team-member">
+          <img src="view/images/photo.jpg" alt="Team Member 3">
+          <h2>Sisan Tamang</h2>
+          <h3>raitomahang@gmail.com</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nostrum soluta autem omnis, ipsam magni quas totam consectetur commodi laudantium.</p>
+        </div>
+        <div class="team-member">
+          <img src="view/images/san.jpg" alt="Team Member 4">
+          <h2>Sanjog Mehta</h2>
+          <h3>Sanjogmehta8@gmail.com</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, debitis. Molestias perspiciatis assumenda, vero quia ut officiis iste voluptatibus neque!
+          </p>
+        </div>
+      </div>
+      <!-- <button>Message Us</button> -->
+    </div>
+  </section>
+  <jsp:include page="Footer.jsp"/>
 </body>
 </html>

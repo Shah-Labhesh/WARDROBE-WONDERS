@@ -166,7 +166,7 @@ main {
 						<li><a href="/E-commerceWebsite/Admin">Home</a></li>
 						<li><a href="${pageContext.request.contextPath}/viewProducts">View
 								Products</a></li>
-						<li><a href="#">View OrderList</a></li>
+						<li><a href="${pageContext.request.contextPath}/viewOrder">View OrderList</a></li>
 					</ul>
 				</nav>
 				<div class="search">

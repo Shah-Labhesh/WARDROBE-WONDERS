@@ -129,5 +129,27 @@ public class UserDAO {
 		return null;
 
 	}
+	
+	public static String changePassword(String user,String pass) throws SQLException {
+		try {
+			String updateQuery = "UPDATE users SET User_password=? WHERE User_phone=?";
+			Connection con = getConnection();
+			PreparedStatement pt = con.prepareStatement(updateQuery);
+			pt.setNString(1, pass);
+			pt.setNString(2, user);
+			int rows = pt.executeUpdate();
+			if (rows >= 1) {
+				return "Successfully Updated";
+			}
+			con.close();
+			return null;
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+
+	}
 
 }

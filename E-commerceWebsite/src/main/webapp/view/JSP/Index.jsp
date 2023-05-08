@@ -694,7 +694,7 @@ p {
   left: 0;
   width: 100%;
   height: 40%;
-  background-color: rgba(0, 0, 0, 0.8); /* black background with 80% opacity */
+  background-color: rgba(0, 0, 0, 0.6); /* black background with 80% opacity */
   color: white;
   text-align: center;
   padding: 20px;

@@ -25,7 +25,7 @@ public class CartServlet extends HttpServlet{
 		String user = (String) session.getAttribute("loggedInId");
 		try {
 			ArrayList<Cart> message=CartDAO.getCartDetailsByUser(user);
-			if(message!=null) {
+			if(message!=null && !resp.isCommitted()) {
 			RequestDispatcher rd = req.getRequestDispatcher("view/JSP/Cart.jsp");
 			req.setAttribute("cartList", message);
 			rd.forward(req, resp);

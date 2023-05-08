@@ -1,6 +1,7 @@
 package controller.url;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -20,16 +21,28 @@ public class AddCartServlet extends HttpServlet {
 		String prodId = req.getParameter("id");
 		String quanStr = req.getParameter("quan");
 		int quan = Integer.parseInt(quanStr);
+		PrintWriter out = resp.getWriter();
+
 
 		String user = (String) session.getAttribute("loggedInId");
 		try {
 			String message = CartDAO.addToCart(prodId, quan, user);
 			if (message.equals("Successfully Added")) {
+				resp.setContentType("text/html");
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('Added to cart Successfully');");
+				out.println("location='/addCart';");
+				out.println("</script>");
 				RequestDispatcher rd = req.getRequestDispatcher("/cart");
-				rd.forward(req, resp);
+				rd.include(req, resp);
 			} else {
+				resp.setContentType("text/html");
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('Add to cart failed');");
+				out.println("location='products';");
+				out.println("</script>");
 				RequestDispatcher rd = req.getRequestDispatcher("/products");
-				rd.forward(req, resp);
+				rd.include(req, resp);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -37,7 +37,7 @@ public class LoginUser extends HttpServlet {
 					session.setAttribute("loggedInPass", password);
 					out.println("<script type=\"text/javascript\">");
 					out.println("alert('Admin logged In Successfully');");
-					out.println("location='SignIn';");
+					out.println("location='UserLogin';");
 					out.println("</script>");
 					RequestDispatcher rd = request.getRequestDispatcher("/Admin");
 					rd.include(request, response);
@@ -65,7 +65,7 @@ public class LoginUser extends HttpServlet {
 					session.setAttribute("loggedInPass", userPassword);
 					out.println("<script type=\"text/javascript\">");
 					out.println("alert('User logged In successfully');");
-					out.println("location='SignIn';");
+					out.println("location='UserLogin';");
 					out.println("</script>");
 					RequestDispatcher rd = request.getRequestDispatcher("/home");
 					rd.include(request, response);

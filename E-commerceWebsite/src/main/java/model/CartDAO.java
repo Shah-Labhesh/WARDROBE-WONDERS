@@ -98,13 +98,13 @@ public class CartDAO {
 		return null;
 	}
 	
-	public static String deleteCartItem(String id) {
+	public static String deleteCartItem(int id) {
 		try {
 
 			String deleteQuery = "DELETE FROM carts WHERE Cart_Id=?";
 			Connection con = getConnection();
 			PreparedStatement pt = con.prepareStatement(deleteQuery);
-			pt.setString(1, id);
+			pt.setInt(1, id);
 
 			int rows = pt.executeUpdate();
 
